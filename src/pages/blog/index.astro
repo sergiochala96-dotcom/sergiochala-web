@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const pillarLabels: Record<string, string> = {
+  hotmart: 'Hotmart',
+  skool: 'Skool',
+  claude: 'Claude',
+};
+---
+<Layout title="Blog" description="Artículos de Sergio Chala sobre Skool, Hotmart y Claude.">
+  <h1>Blog</h1>
+  <p>Artículos basados en experiencia real usando Skool, Hotmart y Claude.</p>
+
+  <nav class="filters">
+    <a href="/blog/" class="active">Todos</a>
+    <a href="/blog/hotmart/">Hotmart</a>
+    <a href="/blog/skool/">Skool</a>
+    <a href="/blog/claude/">Claude</a>
+  </nav>
+
+  {posts.length === 0 && (
+    <p class="empty-state">Todavía no hay artículos publicados. Pronto empezamos.</p>
+  )}
+
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <span class="pillar-tag">{pillarLabels[post.data.pillar]}</span>
+        <br />
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        <p class="post-meta">
+          {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        <p>{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</Layout>

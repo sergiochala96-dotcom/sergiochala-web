@@ -1,0 +1,34 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const pillarLabels: Record<string, string> = {
+  hotmart: 'Hotmart',
+  skool: 'Skool',
+  claude: 'Claude',
+};
+---
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="post">
+    <span class="pillar-tag">{pillarLabels[post.data.pillar]}</span>
+    <h1>{post.data.title}</h1>
+    <p class="post-meta">
+      Publicado el {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' })}
+      {post.data.updatedDate && (
+        <> · Actualizado el {post.data.updatedDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' })}</>
+      )}
+    </p>
+    <Content />
+  </article>
+</Layout>

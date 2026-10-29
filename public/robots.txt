@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sergiochala-web.vercel.app/sitemap-index.xml
