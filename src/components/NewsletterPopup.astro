@@ -14,7 +14,7 @@
       <h2 id="newsletter-popup-title">No te pierdas nada de <span class="highlight">Skool, Hotmart y Claude</span></h2>
       <p class="newsletter-popup-text">Te aviso cuando publique un artículo nuevo. Sin spam.</p>
 
-      <form method="post" action="https://systeme.io/embedded/46220649/subscription" class="newsletter-popup-form">
+      <form method="post" action="https://systeme.io/embedded/46220649/subscription" target="newsletter-popup-frame" class="newsletter-popup-form" id="newsletter-popup-form">
         <label>
           Nombre
           <input type="text" name="surname" placeholder="Tu nombre" required />
@@ -27,19 +27,35 @@
           <button type="submit" class="cta cta-accent btn">Quiero suscribirme</button>
         </div>
       </form>
+
+      <div class="newsletter-popup-success" id="newsletter-popup-success" hidden>
+        <p>¡Listo! Ya estás suscrito. Te aviso cuando publique un artículo nuevo.</p>
+      </div>
     </div>
   </div>
+
+  <iframe name="newsletter-popup-frame" class="newsletter-popup-frame" aria-hidden="true" tabindex="-1"></iframe>
 </div>
 
 <script>
   const popup = document.getElementById('newsletter-popup');
   const closeBtn = document.getElementById('newsletter-popup-close');
   const backdrop = document.getElementById('newsletter-popup-backdrop');
+  const form = document.getElementById('newsletter-popup-form');
+  const successMsg = document.getElementById('newsletter-popup-success');
   const STORAGE_KEY = 'sc-newsletter-popup-shown';
 
   function closePopup() {
     popup?.setAttribute('hidden', '');
   }
+
+  form?.addEventListener('submit', () => {
+    // El form se envía a un iframe oculto (target="newsletter-popup-frame")
+    // para no sacar a la persona de la página con la pantalla de Systeme.io.
+    form.hidden = true;
+    if (successMsg) successMsg.hidden = false;
+    setTimeout(closePopup, 3000);
+  });
 
   try {
     if (popup && !sessionStorage.getItem(STORAGE_KEY)) {

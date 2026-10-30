@@ -1038,6 +1038,11 @@ article.post th {
   gap: 0.9rem;
 }
 
+.newsletter-popup-form[hidden],
+.newsletter-popup-success[hidden] {
+  display: none;
+}
+
 .newsletter-popup-form label {
   display: flex;
   flex-direction: column;
@@ -1067,6 +1072,18 @@ article.post th {
 .newsletter-popup-form .btn {
   width: 100%;
   text-align: center;
+}
+
+.newsletter-popup-success p {
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.newsletter-popup-frame {
+  display: none;
 }
 
 @media (max-width: 680px) {
