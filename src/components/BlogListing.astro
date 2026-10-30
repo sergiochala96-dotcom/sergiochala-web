@@ -1,0 +1,122 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { upcomingTopics } from '../data/upcomingTopics';
+
+interface Props {
+  heading: string;
+  intro?: string;
+  posts: CollectionEntry<'blog'>[];
+  activePillar?: 'hotmart' | 'skool' | 'claude';
+}
+
+const { heading, intro, posts, activePillar } = Astro.props;
+
+const pillarLabels: Record<string, string> = {
+  hotmart: 'Hotmart',
+  skool: 'Skool',
+  claude: 'Claude',
+};
+
+const featured = posts[0];
+const restPosts = posts.slice(1);
+
+const placeholders = activePillar
+  ? upcomingTopics.filter((topic) => topic.pillar === activePillar)
+  : upcomingTopics;
+
+const dateFmt = (d: Date) =>
+  d.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+<h1>{heading}</h1>
+{intro && <p>{intro}</p>}
+
+<div class="blog-toolbar">
+  <nav class="blog-categories">
+    <a href="/blog/" class={!activePillar ? 'active' : ''}>Todo</a>
+    <a href="/blog/skool/" class={activePillar === 'skool' ? 'active' : ''}>Skool</a>
+    <a href="/blog/hotmart/" class={activePillar === 'hotmart' ? 'active' : ''}>Hotmart</a>
+    <a href="/blog/claude/" class={activePillar === 'claude' ? 'active' : ''}>Claude</a>
+  </nav>
+
+  <label class="blog-search">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    <input type="search" id="blog-search-input" placeholder="Busca un artículo..." />
+  </label>
+</div>
+
+{posts.length === 0 && placeholders.length === 0 && (
+  <p class="empty-state">Todavía no hay artículos publicados. Pronto empezamos.</p>
+)}
+
+{featured && (
+  <a class="blog-featured" href={`/blog/${featured.id}/`}>
+    <div class="blog-featured-media" data-pillar={featured.data.pillar}>
+      <span>{pillarLabels[featured.data.pillar]}</span>
+    </div>
+    <div class="blog-featured-copy">
+      <p class="blog-featured-meta">
+        {dateFmt(featured.data.pubDate)} · <span class="pillar-tag">{pillarLabels[featured.data.pillar]}</span>
+      </p>
+      <h2>{featured.data.title}</h2>
+      <p class="blog-featured-desc">{featured.data.description}</p>
+      <span class="cta cta-accent">Leer artículo</span>
+    </div>
+  </a>
+)}
+
+{(restPosts.length > 0 || placeholders.length > 0) && (
+  <>
+    <h2 class="blog-grid-heading">Más artículos</h2>
+    <div class="blog-grid" id="blog-grid">
+      {restPosts.map((post) => (
+        <a class="blog-card" href={`/blog/${post.id}/`} data-search={`${post.data.title} ${post.data.description}`.toLowerCase()}>
+          <div class="blog-card-media" data-pillar={post.data.pillar}>
+            <span>{pillarLabels[post.data.pillar]}</span>
+          </div>
+          <p class="post-meta">
+            {dateFmt(post.data.pubDate)} · <span class="pillar-tag">{pillarLabels[post.data.pillar]}</span>
+          </p>
+          <h3>{post.data.title}</h3>
+          <p>{post.data.description}</p>
+        </a>
+      ))}
+
+      {placeholders.map((topic) => (
+        <div class="blog-card blog-card--placeholder" data-search={topic.title.toLowerCase()}>
+          <div class="blog-card-media" data-pillar={topic.pillar}>
+            <span>{pillarLabels[topic.pillar]}</span>
+          </div>
+          <p class="post-meta">
+            <span class="badge-soon">Próximamente</span>
+          </p>
+          <h3>{topic.title}</h3>
+          <p>Todavía estoy escribiendo este artículo.</p>
+        </div>
+      ))}
+    </div>
+    <p class="blog-search-empty" id="blog-search-empty" hidden>No encontré artículos con ese término.</p>
+  </>
+)}
+
+<script>
+  const input = document.getElementById('blog-search-input') as HTMLInputElement | null;
+  const grid = document.getElementById('blog-grid');
+  const emptyMsg = document.getElementById('blog-search-empty');
+
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    const cards = grid?.querySelectorAll<HTMLElement>('[data-search]') ?? [];
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const match = card.dataset.search?.includes(query) ?? true;
+      card.hidden = !match;
+      if (match) visible += 1;
+    });
+
+    if (emptyMsg) emptyMsg.hidden = visible !== 0;
+  });
+</script>

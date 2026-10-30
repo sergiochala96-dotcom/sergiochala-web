@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import BlogListing from '../../../components/BlogListing.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -7,7 +8,7 @@ export async function getStaticPaths() {
   return pillars.map((pilar) => ({ params: { pilar } }));
 }
 
-const { pilar } = Astro.params;
+const { pilar } = Astro.params as { pilar: 'hotmart' | 'skool' | 'claude' };
 
 const pillarLabels: Record<string, string> = {
   hotmart: 'Hotmart',
@@ -20,31 +21,12 @@ const posts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const label = pillarLabels[pilar as string] ?? pilar;
+const label = pillarLabels[pilar] ?? pilar;
 ---
 <Layout title={`Blog · ${label}`} description={`Artículos de Sergio Chala sobre ${label}.`}>
-  <h1>Blog · {label}</h1>
-
-  <nav class="filters">
-    <a href="/blog/">Todos</a>
-    <a href="/blog/hotmart/" class={pilar === 'hotmart' ? 'active' : ''}>Hotmart</a>
-    <a href="/blog/skool/" class={pilar === 'skool' ? 'active' : ''}>Skool</a>
-    <a href="/blog/claude/" class={pilar === 'claude' ? 'active' : ''}>Claude</a>
-  </nav>
-
-  {posts.length === 0 && (
-    <p class="empty-state">Todavía no hay artículos de {label}. Pronto empezamos.</p>
-  )}
-
-  <ul class="post-list">
-    {posts.map((post) => (
-      <li>
-        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-        <p class="post-meta">
-          {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-        </p>
-        <p>{post.data.description}</p>
-      </li>
-    ))}
-  </ul>
+  <BlogListing
+    heading={`Blog · ${label}`}
+    posts={posts}
+    activePillar={pilar}
+  />
 </Layout>
