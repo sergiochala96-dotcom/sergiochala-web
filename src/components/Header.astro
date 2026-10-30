@@ -1,13 +1,51 @@
 ---
+const announcement = 'Prueba nuestra nueva aplicación para creadores de Skool, disponible por tiempo limitado.';
+const repeated = Array.from({ length: 8 });
 ---
+<div class="marquee-bar">
+  <div class="marquee-track">
+    {repeated.map(() => <span class="marquee-item">{announcement}</span>)}
+    {repeated.map(() => <span class="marquee-item" aria-hidden="true">{announcement}</span>)}
+  </div>
+</div>
+
 <header class="site-header">
-  <div class="container">
+  <div class="nav-pill">
     <a href="/" class="brand">Sergio Chala</a>
-    <nav>
+
+    <nav class="main-nav" id="main-nav">
       <ul>
-        <li><a href="/">Inicio</a></li>
+        <li><a href="/#sobre-mi">Sobre mí</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#contacto">Contacto</a></li>
         <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#recursos">Recursos Gratuitos</a></li>
       </ul>
+      <a class="cta cta-accent cta-pulse nav-cta" href="/cursos/">Toma mi Curso</a>
     </nav>
+
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span class="sr-only">Abrir menú</span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('is-open') ?? false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
