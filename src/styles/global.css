@@ -689,26 +689,8 @@ article.post th {
   margin-bottom: 2rem;
 }
 
-.section-stub {
-  margin: 3rem 0;
-  padding: 2rem;
-  border: 1px dashed var(--color-border);
-  border-radius: 12px;
-  background: var(--color-surface);
-  scroll-margin-top: 155px;
-}
-
 #metodo {
   scroll-margin-top: 155px;
-}
-
-.section-stub h2 {
-  margin: 0 0 0.5rem;
-}
-
-.section-stub p {
-  margin: 0;
-  color: var(--color-text-muted);
 }
 
 .steps {
