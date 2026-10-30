@@ -1,31 +1,112 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Sergio Chala">
-  <section class="hero">
-    <h1>Sergio Chala</h1>
-    <p>
-      Esta página está en construcción. Acá voy a compartir lo que aprendo y lo que hago
-      con Skool, Hotmart y Claude, con artículos basados en experiencia real.
-    </p>
+<Layout title="Sergio Chala" description="Te ayudo a construir tu negocio digital — comunidad, cursos y automatización con IA — con lo que a mí me ha funcionado de verdad.">
+  <section class="hero-dark full-bleed">
+    <div class="full-bleed-inner hero-dark-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Marca personal · Skool · Hotmart · Claude</p>
+        <h1>Construye tu negocio digital y monetiza lo que sabes, con IA.</h1>
+        <p class="hero-sub">
+          Te acompaño a crear tu propio ecosistema digital: comunidad, cursos e infoproductos,
+          y a automatizarlo con inteligencia artificial. Con lo que a mí me ha funcionado de
+          verdad, sin humo ni promesas de resultados garantizados.
+        </p>
+        <div class="hero-actions">
+          <a class="cta cta-accent" href="/blog/">Ver el blog</a>
+          <a class="cta cta-ghost" href="#metodo">Conoce mi método</a>
+        </div>
+      </div>
+
+      <div class="hero-photo" aria-hidden="true">
+        <span>Foto próximamente</span>
+      </div>
+    </div>
+
+    <div class="full-bleed-inner hero-stats">
+      <div class="stat">
+        <span class="stat-number">+2 años</span>
+        <span class="stat-label">construyendo comunidades y negocios digitales</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">+1.000</span>
+        <span class="stat-label">miembros en mis propias comunidades</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">+10</span>
+        <span class="stat-label">personas a las que ya ayudé a lanzar la suya</span>
+      </div>
+    </div>
   </section>
 
-  <section class="pillars">
-    <a class="pillar-card" href="/blog/hotmart/">
-      <h3>Hotmart</h3>
-      <p>Cómo vender productos digitales y cursos en Hotmart.</p>
-    </a>
-    <a class="pillar-card" href="/blog/skool/">
-      <h3>Skool</h3>
-      <p>Cómo crear y administrar comunidades en Skool (y Skooly).</p>
-    </a>
-    <a class="pillar-card" href="/blog/claude/">
-      <h3>Claude</h3>
-      <p>Cómo uso Claude de Anthropic para crear contenido y productos.</p>
-    </a>
+  <section class="section-pillars">
+    <h2>De qué hablo en el blog</h2>
+    <p class="section-sub">Tres pilares, todo basado en lo que uso yo mismo todos los días.</p>
+    <div class="pillars">
+      <a class="pillar-card" href="/blog/hotmart/">
+        <h3>Hotmart</h3>
+        <p>Cómo vender productos digitales y cursos en Hotmart.</p>
+      </a>
+      <a class="pillar-card" href="/blog/skool/">
+        <h3>Skool</h3>
+        <p>Cómo crear y administrar comunidades en Skool (y Skooly).</p>
+      </a>
+      <a class="pillar-card" href="/blog/claude/">
+        <h3>Claude</h3>
+        <p>Cómo uso Claude de Anthropic para crear contenido y productos.</p>
+      </a>
+    </div>
   </section>
 
-  <p style="text-align:center;">
-    <a class="cta" href="/blog/">Ver todos los artículos</a>
-  </p>
+  <section id="metodo" class="section-steps">
+    <h2>Mi método</h2>
+    <p class="section-sub">Así es como yo construyo (y como te puedo ayudar a construir el tuyo).</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <h3>Define tu producto y tu nicho</h3>
+        <p>Antes de crear nada, claridad sobre a quién le sirves y qué problema le resuelves.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <h3>Monta tu ecosistema</h3>
+        <p>Comunidad en Skool, cursos e infoproductos en Hotmart — todo conectado.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <h3>Automatiza y escala con IA</h3>
+        <p>Uso Claude para crear contenido, estructurar el SEO y quitarme trabajo mecánico de encima.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band full-bleed">
+    <div class="full-bleed-inner cta-band-inner">
+      <h2>¿Empezamos?</h2>
+      <p>Te dejo todo lo que voy aprendiendo en el blog, con capturas de mis propias cuentas.</p>
+      <a class="cta cta-accent" href="/blog/">Leer el blog</a>
+    </div>
+  </section>
+
+  <section class="section-faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq">
+      <details>
+        <summary>¿Quién es Sergio Chala?</summary>
+        <p>Llevo años trabajando en negocios digitales, comunidades online y creación de contenido. Este sitio es mi marca personal, separada de mis otros proyectos.</p>
+      </details>
+      <details>
+        <summary>¿Qué voy a encontrar en este blog?</summary>
+        <p>Artículos sobre Skool, Hotmart y Claude basados en lo que yo mismo hago y he vivido, con tutoriales paso a paso y capturas reales.</p>
+      </details>
+      <details>
+        <summary>¿Vendes cursos o mentorías?</summary>
+        <p>Esta sección está en construcción — por ahora el foco es el blog. Pronto voy a contar aquí qué más ofrezco.</p>
+      </details>
+      <details>
+        <summary>¿Por qué confiar en tu experiencia?</summary>
+        <p>Porque todo lo que cuento lo hago yo mismo primero, en mis propias comunidades y productos, antes de escribir sobre ello.</p>
+      </details>
+    </div>
+  </section>
 </Layout>
