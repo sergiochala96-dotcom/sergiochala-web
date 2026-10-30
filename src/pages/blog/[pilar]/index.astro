@@ -41,7 +41,7 @@ const label = pillarLabels[pilar as string] ?? pilar;
       <li>
         <a href={`/blog/${post.id}/`}>{post.data.title}</a>
         <p class="post-meta">
-          {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
         </p>
         <p>{post.data.description}</p>
       </li>

@@ -245,3 +245,64 @@ article.post h1 {
 article.post .post-meta {
   margin-bottom: 2rem;
 }
+
+.breadcrumbs {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 1.5rem 0 0;
+}
+
+.breadcrumbs a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-accent);
+}
+
+.faq,
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.faq details {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq details p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+.sources ul {
+  padding-left: 1.2rem;
+}
+
+article.post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+article.post th,
+article.post td {
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+article.post th {
+  background: var(--color-surface);
+}
