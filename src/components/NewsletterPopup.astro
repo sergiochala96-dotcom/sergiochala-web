@@ -1,0 +1,64 @@
+---
+---
+<div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title" hidden>
+  <div class="newsletter-popup-backdrop" id="newsletter-popup-backdrop"></div>
+  <div class="newsletter-popup-card">
+    <button type="button" class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Cerrar">&times;</button>
+
+    <div class="newsletter-popup-media">
+      <img src="/images/sergio-popup.png" alt="Sergio Chala" width="1024" height="1536" />
+    </div>
+
+    <div class="newsletter-popup-body">
+      <p class="newsletter-popup-eyebrow">Únete gratis</p>
+      <h2 id="newsletter-popup-title">No te pierdas nada de <span class="highlight">Skool, Hotmart y Claude</span></h2>
+      <p class="newsletter-popup-text">Te aviso cuando publique un artículo nuevo. Sin spam.</p>
+
+      <form method="post" action="https://systeme.io/embedded/46220649/subscription" class="newsletter-popup-form">
+        <label>
+          Nombre
+          <input type="text" name="surname" placeholder="Tu nombre" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="tu@email.com" required />
+        </label>
+        <div class="f-row">
+          <button type="submit" class="cta cta-accent btn">Quiero suscribirme</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('newsletter-popup');
+  const closeBtn = document.getElementById('newsletter-popup-close');
+  const backdrop = document.getElementById('newsletter-popup-backdrop');
+  const STORAGE_KEY = 'sc-newsletter-popup-shown';
+
+  function closePopup() {
+    popup?.setAttribute('hidden', '');
+  }
+
+  try {
+    if (popup && !sessionStorage.getItem(STORAGE_KEY)) {
+      setTimeout(() => {
+        popup.removeAttribute('hidden');
+        try {
+          sessionStorage.setItem(STORAGE_KEY, '1');
+        } catch (_) {
+          /* private mode or storage blocked: ignore */
+        }
+      }, 60000);
+    }
+  } catch (_) {
+    /* private mode or storage blocked: show once per load as fallback */
+  }
+
+  closeBtn?.addEventListener('click', closePopup);
+  backdrop?.addEventListener('click', closePopup);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closePopup();
+  });
+</script>

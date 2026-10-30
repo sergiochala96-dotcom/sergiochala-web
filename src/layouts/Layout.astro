@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import NewsletterPopup from '../components/NewsletterPopup.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -37,5 +38,6 @@ const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
       <slot />
     </main>
     <Footer />
+    <NewsletterPopup />
   </body>
 </html>

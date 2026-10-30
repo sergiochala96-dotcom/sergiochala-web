@@ -11,7 +11,9 @@ const repeated = Array.from({ length: 8 });
 
 <header class="site-header">
   <div class="nav-pill">
-    <a href="/" class="brand">Sergio Chala</a>
+    <a href="/" class="brand">
+      <img src="/images/logo-sergio-chala.png" alt="Sergio Chala" />
+    </a>
 
     <nav class="main-nav" id="main-nav">
       <ul>
@@ -21,15 +23,17 @@ const repeated = Array.from({ length: 8 });
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/#recursos">Recursos Gratuitos</a></li>
       </ul>
-      <a class="cta cta-accent cta-pulse nav-cta" href="/cursos/">Toma mi Curso</a>
     </nav>
 
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-      <span class="sr-only">Abrir menú</span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
+    <div class="nav-pill-actions">
+      <a class="cta cta-accent cta-pulse nav-cta" href="/cursos/">Toma mi Curso</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only">Abrir menú</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
   </div>
 </header>
 
