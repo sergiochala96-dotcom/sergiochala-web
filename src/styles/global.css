@@ -183,7 +183,7 @@ body.has-progress .site-header {
 }
 
 .nav-pill {
-  max-width: 1040px;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   background: var(--color-white);
@@ -192,7 +192,7 @@ body.has-progress .site-header {
   box-shadow: 0 12px 30px rgba(17, 17, 17, 0.08);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   padding: 0.55rem 0.55rem 0.55rem 1.5rem;
 }
@@ -212,6 +212,7 @@ body.has-progress .site-header {
 .main-nav {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-pill-actions {
@@ -1101,15 +1102,15 @@ article.post th {
     var(--color-black);
   color: var(--color-white);
   margin-top: -100px;
-  padding: 124px 0 3rem;
+  padding: 110px 0 3rem;
 }
 
 .hero-dark-inner {
   display: grid;
-  grid-template-columns: 1fr 1.7fr;
+  grid-template-columns: 1.2fr 1.4fr;
   gap: 2.5rem;
   align-items: stretch;
-  max-width: 1180px;
+  max-width: 1440px;
 }
 
 .hero-copy {
@@ -1230,10 +1231,10 @@ article.post th {
   position: relative;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   align-self: stretch;
   overflow: visible;
-  min-height: 720px;
+  min-height: 700px;
 }
 
 .hero-photo img {
