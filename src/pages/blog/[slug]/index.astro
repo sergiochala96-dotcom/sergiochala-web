@@ -172,4 +172,14 @@ const faqJsonLd = post.data.faq.length
       </div>
     </aside>
   </div>
+
+  <script>
+    document.querySelectorAll<HTMLAnchorElement>('.post a[href]').forEach((link) => {
+      link.setAttribute('target', '_blank');
+      const rel = new Set((link.getAttribute('rel') ?? '').split(/\s+/).filter(Boolean));
+      rel.add('noopener');
+      rel.add('noreferrer');
+      link.setAttribute('rel', [...rel].join(' '));
+    });
+  </script>
 </Layout>
