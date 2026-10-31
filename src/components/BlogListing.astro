@@ -4,12 +4,11 @@ import { upcomingTopics, type UpcomingTopic } from '../data/upcomingTopics';
 
 interface Props {
   heading: string;
-  intro?: string;
   posts: CollectionEntry<'blog'>[];
   activePillar?: 'hotmart' | 'skool' | 'claude';
 }
 
-const { heading, intro, posts, activePillar } = Astro.props;
+const { heading, posts, activePillar } = Astro.props;
 
 const pillarLabels: Record<string, string> = {
   hotmart: 'Hotmart',
@@ -44,8 +43,7 @@ const recentItems = featured ? otherItems.slice(3) : otherItems;
 const dateFmt = (d: Date) =>
   d.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
-<h1>{heading}</h1>
-{intro && <p>{intro}</p>}
+<h1 class="blog-page-title">{heading}</h1>
 
 <div class="blog-search-row">
   <label class="blog-search">

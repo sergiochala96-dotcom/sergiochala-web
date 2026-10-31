@@ -7,9 +7,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  wide?: boolean;
 }
 
-const { title, description = 'Marca personal de Sergio Chala: cursos, recursos y un blog sobre Skool, Hotmart y Claude.' } = Astro.props;
+const { title, description = 'Marca personal de Sergio Chala: cursos, recursos y un blog sobre Skool, Hotmart y Claude.', wide = false } = Astro.props;
 const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
 ---
 <!doctype html>
@@ -34,7 +35,7 @@ const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
   </head>
   <body>
     <Header />
-    <main class="container">
+    <main class={`container ${wide ? 'container--wide' : ''}`}>
       <slot />
     </main>
     <Footer />

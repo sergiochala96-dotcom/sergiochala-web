@@ -8,10 +8,6 @@ const posts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-<Layout title="Blog" description="Artículos de Sergio Chala sobre Skool, Hotmart y Claude.">
-  <BlogListing
-    heading="Blog"
-    intro="Artículos basados en experiencia real usando Skool, Hotmart y Claude."
-    posts={posts}
-  />
+<Layout title="Blog" description="Artículos de Sergio Chala sobre Skool, Hotmart y Claude." wide>
+  <BlogListing heading="Blog" posts={posts} />
 </Layout>
