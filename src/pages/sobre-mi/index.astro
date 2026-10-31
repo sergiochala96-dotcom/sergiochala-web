@@ -33,12 +33,11 @@ const timeline = [
 <Layout title="Sobre mí" description="Quién es Sergio Chala y cuál es su experiencia con Skool, Hotmart y Claude.">
   <section class="about-hero full-bleed">
     <div class="full-bleed-inner about-hero-inner">
-      <p class="about-hero-eyebrow">¡Hola! Soy</p>
-      <h1>Sergio</h1>
       <div class="about-hero-media">
-        <img src="/images/sergio-hero.png" alt="Sergio Chala" width="900" height="600" />
+        <img src="/images/sergio-sobre-mi.png" alt="Sergio Chala" width="1080" height="1080" />
       </div>
       <div class="about-hero-copy">
+        <h1>¡Hola, soy Sergio Chala!</h1>
         <h2>AI CEO · Emprendedor obsesionado con la innovación, mentor y consultor.</h2>
         <p>
           Llevo años construyendo negocios digitales: comunidades, cursos e infoproductos, y ahora
@@ -56,21 +55,23 @@ const timeline = [
 
   <section class="about-timeline">
     <h2 class="section-label">Mi camino hasta aquí</h2>
-    <div class="timeline">
-      <div class="timeline-line" aria-hidden="true"></div>
-      {timeline.map((item, index) => (
-        <div class={`timeline-item ${index % 2 === 0 ? 'timeline-item--up' : 'timeline-item--down'}`}>
-          <div class="timeline-card">
-            <span class="timeline-year">{item.year}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-            <div class="timeline-media" aria-hidden="true">
-              <span>Imagen próximamente</span>
+    <div class="timeline-scroll">
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+        {timeline.map((item) => (
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card">
+              <span class="timeline-year">{item.year}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <div class="timeline-media" aria-hidden="true">
+                <span>Imagen próximamente</span>
+              </div>
             </div>
           </div>
-          <span class="timeline-dot" aria-hidden="true"></span>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 

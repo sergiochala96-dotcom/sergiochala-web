@@ -1677,7 +1677,7 @@ article.post th {
 
 .newsletter-section-inner {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 2.5rem;
   align-items: center;
 }
@@ -1770,7 +1770,7 @@ article.post th {
 
 @media (max-width: 760px) {
   .newsletter-section-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .newsletter-section-media {
@@ -1955,7 +1955,10 @@ article.post th {
 }
 
 .about-hero-inner {
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: center;
 }
 
 .about-hero-eyebrow {
@@ -1967,26 +1970,25 @@ article.post th {
   margin: 0 0 0.25rem;
 }
 
-.about-hero h1 {
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
-  margin: 0 0 1.5rem;
+.about-hero-copy h1 {
+  font-size: clamp(2rem, 4.4vw, 2.9rem);
+  margin: 0 0 0.75rem;
 }
 
 .about-hero-media {
-  max-width: 420px;
-  margin: 0 auto 1.75rem;
   border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 1 / 1;
 }
 
-.about-hero-copy {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: left;
+.about-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-hero-copy h2 {
-  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   margin: 0 0 1rem;
 }
 
@@ -1995,15 +1997,39 @@ article.post th {
   margin: 0 0 1rem;
 }
 
-/* ---- Sobre mí: timeline ---- */
+@media (max-width: 760px) {
+  .about-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-hero-media {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-hero-copy {
+    text-align: left;
+  }
+}
+
+/* ---- Sobre mí: timeline (siempre horizontal, con scroll en pantallas angostas) ---- */
 
 .about-timeline {
   margin: 4rem 0 5rem;
 }
 
+.timeline-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
 .timeline {
   position: relative;
+  display: flex;
+  gap: 1.25rem;
   padding-top: 2rem;
+  min-width: min-content;
 }
 
 .timeline-line {
@@ -2015,45 +2041,31 @@ article.post th {
   background: var(--color-border);
 }
 
-@media (min-width: 761px) {
-  .timeline {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    align-items: start;
-    min-height: 420px;
-  }
+.timeline-item {
+  position: relative;
+  flex: 1 1 170px;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .timeline-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .timeline-item--up {
-    justify-content: flex-end;
-    padding-bottom: calc(2rem + 10px);
-  }
-
-  .timeline-item--down {
-    padding-top: calc(2rem + 10px);
-  }
-
-  .timeline-dot {
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    border-radius: 999px;
-    background: var(--color-accent);
-    border: 3px solid var(--color-black);
-  }
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  border: 3px solid var(--color-black);
+  z-index: 1;
 }
 
 .timeline-card {
+  width: 100%;
+  margin-top: 1.5rem;
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 1.25rem;
@@ -2092,49 +2104,15 @@ article.post th {
   justify-content: center;
   color: var(--color-text-muted);
   font-size: 0.75rem;
-}
-
-@media (max-width: 760px) {
-  .timeline {
-    padding-top: 0;
-  }
-
-  .timeline-line {
-    top: 0;
-    left: 14px;
-    right: auto;
-    width: 2px;
-    height: 100%;
-  }
-
-  .timeline-item {
-    position: relative;
-    padding-left: 2.5rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    top: 0.5rem;
-    left: 14px;
-    transform: translateX(-50%);
-    width: 14px;
-    height: 14px;
-    border-radius: 999px;
-    background: var(--color-accent);
-    border: 3px solid var(--color-black);
-  }
-
-  .timeline-card {
-    text-align: left;
-  }
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
 /* ---- Contacto ---- */
 
 .contact-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
   margin: 2rem 0 4rem;
@@ -2305,7 +2283,7 @@ article.post th {
 
 .resources-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.25rem;
 }
 
@@ -2319,21 +2297,9 @@ article.post th {
   gap: 0.6rem;
 }
 
-.resource-card--free {
-  background: var(--color-surface);
-}
-
+.resource-card--free,
 .resource-card--paid {
-  background: var(--color-black);
-  color: var(--color-white);
-}
-
-.resource-card--paid h3 {
-  color: var(--color-white);
-}
-
-.resource-card--paid p {
-  color: #d4d4d4;
+  background: var(--color-white);
 }
 
 .resource-card h3 {
