@@ -2,6 +2,7 @@
 title: "¿Quién es el dueño de Skool? Sam Ovens, Daniel Kang y el papel real de Alex Hormozi"
 description: "Quién fundó Skool, quién lo dirige hoy, y qué papel tiene en verdad Alex Hormozi en la plataforma — con la fuente oficial y lo que he visto yo cambiar en Skool desde que se involucró."
 pillar: "skool"
+coverImage: "/images/quien-es-el-dueno-de-skool-cover.jpg"
 pubDate: 2026-10-30
 tags: ["skool", "dueño de skool", "quien es el dueño de skool", "alex hormozi skool", "sam ovens skool"]
 sources:

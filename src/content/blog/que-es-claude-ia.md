@@ -2,6 +2,7 @@
 title: "¿Qué es Claude (la IA de Anthropic) y para qué sirve?"
 description: "Qué es Claude, la inteligencia artificial de Anthropic, para qué sirve en la práctica, y cómo la uso yo todos los días para automatizar mi negocio digital."
 pillar: "claude"
+coverImage: "/images/que-es-claude-ia-cover.jpg"
 pubDate: 2026-10-30
 tags: ["que es claude", "claude ia", "para que sirve claude", "anthropic claude"]
 sources:

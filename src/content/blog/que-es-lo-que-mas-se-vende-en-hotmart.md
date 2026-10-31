@@ -2,6 +2,7 @@
 title: "¿Qué es lo que más se vende en Hotmart? Los nichos que más me han funcionado"
 description: "Qué tipo de productos y qué nichos se venden mejor en Hotmart, según mi experiencia con más de 4.650 ventas, y qué buscan realmente los compradores antes de pagar por un curso."
 pillar: "hotmart"
+coverImage: "/images/que-es-lo-que-mas-se-vende-en-hotmart-cover.jpg"
 pubDate: 2026-10-30
 tags: ["que se vende en hotmart", "nichos hotmart", "mejores productos hotmart", "cursos que mas venden"]
 sources:

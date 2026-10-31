@@ -2,6 +2,7 @@
 title: "¿Qué es Hotmart y cómo funciona? Te lo cuento con más de 5 años y 4.650+ ventas"
 description: "Qué es Hotmart, cómo funciona para vender como productor o como afiliado, y qué he vivido yo facturando en la plataforma desde 2021 con cursos, ebooks y suscripciones."
 pillar: "hotmart"
+coverImage: "/images/que-es-hotmart-como-funciona-cover.jpg"
 pubDate: 2026-10-30
 tags: ["hotmart", "que es hotmart", "como funciona hotmart", "vender en hotmart", "hotmart productor"]
 sources:
