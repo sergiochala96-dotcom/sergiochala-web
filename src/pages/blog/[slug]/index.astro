@@ -11,7 +11,8 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const toc = headings.filter((heading) => heading.depth === 2);
 
 const pillarLabels: Record<string, string> = {
   hotmart: 'Hotmart',
@@ -24,6 +25,9 @@ const postUrl = new URL(`/blog/${post.id}/`, Astro.site).toString();
 const pillarUrl = new URL(`/blog/${post.data.pillar}/`, Astro.site).toString();
 const blogUrl = new URL('/blog/', Astro.site).toString();
 const homeUrl = new URL('/', Astro.site).toString();
+
+const dateFmt = (d: Date) =>
+  d.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
@@ -65,7 +69,7 @@ const faqJsonLd = post.data.faq.length
     }
   : null;
 ---
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} wide progress>
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
@@ -74,45 +78,89 @@ const faqJsonLd = post.data.faq.length
     <a href="/">Inicio</a> › <a href="/blog/">Blog</a> › <a href={`/blog/${post.data.pillar}/`}>{pillarLabel}</a>
   </nav>
 
-  <article class="post">
-    <span class="pillar-tag">{pillarLabel}</span>
-    <h1>{post.data.title}</h1>
-    <p class="post-meta">
-      Publicado el {post.data.pubDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-      {post.data.updatedDate && (
-        <> · Actualizado el {post.data.updatedDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</>
-      )}
-    </p>
-    <Content />
+  <section class="post-hero full-bleed">
+    <div class="post-hero-inner">
+      <div class="post-hero-media" data-pillar={post.data.pillar}>
+        <span>{pillarLabel}</span>
+      </div>
+      <div class="post-hero-copy">
+        <span class="pillar-tag">{pillarLabel}</span>
+        <h1>{post.data.title}</h1>
+        <p class="post-hero-desc">{post.data.description}</p>
+        <div class="post-author">
+          <div class="post-author-avatar">SC</div>
+          <div class="post-author-meta">
+            <strong>Sergio Chala</strong>
+            <span>
+              {dateFmt(post.data.pubDate)}
+              {post.data.updatedDate && <> · Actualizado el {dateFmt(post.data.updatedDate)}</>}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    {post.data.faq.length > 0 && (
-      <section class="faq">
-        <h2>Preguntas frecuentes</h2>
-        {post.data.faq.map((item) => (
-          <details>
-            <summary>{item.question}</summary>
-            <p>{item.answer}</p>
-          </details>
-        ))}
-      </section>
-    )}
-
-    {post.data.sources.length > 0 && (
-      <section class="sources">
-        <h2>Fuentes consultadas</h2>
+  <div class="post-layout">
+    {toc.length > 0 && (
+      <aside class="post-toc">
+        <p class="post-toc-label">En este artículo</p>
         <ul>
-          {post.data.sources.map((source) => (
-            <li>
-              <a href={source.url} target="_blank" rel="noopener noreferrer nofollow">{source.label}</a>
-            </li>
+          {toc.map((heading) => (
+            <li><a href={`#${heading.slug}`}>{heading.text}</a></li>
           ))}
         </ul>
-        {post.data.verifiedDate && (
-          <p class="post-meta">
-            Datos verificados el {post.data.verifiedDate.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-          </p>
-        )}
-      </section>
+      </aside>
     )}
-  </article>
+
+    <article class="post post-main">
+      <Content />
+
+      {post.data.faq.length > 0 && (
+        <section class="faq">
+          <h2>Preguntas frecuentes</h2>
+          {post.data.faq.map((item) => (
+            <details>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </section>
+      )}
+
+      {post.data.sources.length > 0 && (
+        <section class="sources">
+          <h2>Fuentes consultadas</h2>
+          <ul>
+            {post.data.sources.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noopener noreferrer nofollow">{source.label}</a>
+              </li>
+            ))}
+          </ul>
+          {post.data.verifiedDate && (
+            <p class="post-meta">
+              Datos verificados el {dateFmt(post.data.verifiedDate)}
+            </p>
+          )}
+        </section>
+      )}
+    </article>
+
+    <aside class="post-sidebar">
+      <div class="post-ad-card">
+        <p class="post-ad-eyebrow">Aprende más</p>
+        <h3>Crea tu comunidad en Skool</h3>
+        <p>Si quieres aprender a montar y monetizar tu propia comunidad, te enseño paso a paso dentro del curso.</p>
+        <a
+          class="cta cta-accent cta-pulse"
+          href="https://www.skool.com/infocreators-club-pro-6633/about"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Toma mi Curso
+        </a>
+      </div>
+    </aside>
+  </div>
 </Layout>
