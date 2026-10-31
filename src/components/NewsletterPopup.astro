@@ -72,9 +72,25 @@
   });
 
   if (popup && !isAlreadySubscribed()) {
-    setTimeout(() => {
-      popup.removeAttribute('hidden');
-    }, 20000);
+    let shown = false;
+
+    function scrollPercent() {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable <= 0) return 100;
+      return ((window.scrollY || doc.scrollTop) / scrollable) * 100;
+    }
+
+    function onScroll() {
+      if (shown) return;
+      if (scrollPercent() >= 70) {
+        shown = true;
+        popup.removeAttribute('hidden');
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   closeBtn?.addEventListener('click', closePopup);
