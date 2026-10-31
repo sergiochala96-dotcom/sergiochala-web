@@ -1,21 +1,24 @@
 ---
-title: "¿Qué es Skool? Te lo cuento después de usarlo 2 años en mis propias comunidades"
-description: "Qué es Skool, qué incluye cada plan y qué he vivido yo usándolo más de 2 años con mis propias comunidades y ayudando a otras personas a crear la suya."
+title: "¿Qué es Skool y para qué sirve? Te lo cuento después de usarlo 2 años en mis propias comunidades"
+description: "Qué es Skool, para qué sirve exactamente, qué incluye cada plan y qué he vivido yo usándolo más de 2 años con mis propias comunidades y ayudando a otras personas a crear la suya."
 pillar: "skool"
 coverImage: "/images/que-es-skool-cover.jpg"
 pubDate: 2026-10-29
-tags: ["skool", "comunidades online", "qué es skool"]
+updatedDate: 2026-10-30
+tags: ["skool", "comunidades online", "qué es skool", "para qué sirve skool"]
 sources:
   - label: "Skool — About (skool.com/about)"
     url: "https://www.skool.com/about"
   - label: "Skool — Pricing (skool.com/pricing)"
     url: "https://www.skool.com/pricing"
-verifiedDate: 2026-10-29
+verifiedDate: 2026-10-30
 faq:
   - question: "¿Skool es gratis?"
     answer: "No del todo. Skool no tiene un plan gratuito permanente: para abrir tu propia comunidad necesitas un plan de pago (Hobby o Pro), aunque sí puedes unirte gratis a comunidades de otras personas si ellas lo permiten."
   - question: "¿Cuánto cuesta Skool?"
-    answer: "Tiene dos planes: Hobby a 9 USD al mes (con 10% de comisión por transacción) y Pro a 99 USD al mes (con 2,9% de comisión). Ambos incluyen miembros, cursos, videos y llamadas en vivo ilimitadas. Con pago anual hay 2 meses gratis. Precios verificados en skool.com/pricing."
+    answer: "Tiene dos planes: Hobby a 9 USD al mes (con 10% de comisión por transacción) y Pro a 99 USD al mes (con 2,9% de comisión). Ambos incluyen miembros, cursos, videos y llamadas en vivo ilimitadas. Con pago anual hay 2 meses gratis. Te cuento el detalle completo, con ejemplos, en mi artículo sobre cuánto cuesta Skool al mes."
+  - question: "¿Para qué sirve Skool exactamente?"
+    answer: "Para crear y administrar una comunidad de pago (o gratuita) sin tener que combinar varias herramientas: sirve para alojar tu comunidad tipo foro, tus cursos en video, tus llamadas en vivo y el cobro de las membresías, todo desde un mismo lugar."
   - question: "¿Qué diferencia a Skool de un grupo de Facebook o un servidor de Discord?"
     answer: "Que todo vive en un solo lugar: la comunidad (tipo foro), los cursos, las videollamadas en vivo y el cobro de membresías. En Facebook o Discord normalmente terminas combinando varias herramientas aparte para lograr lo mismo."
   - question: "¿Necesito saber de tecnología para crear mi comunidad en Skool?"
@@ -27,6 +30,18 @@ Antes de Skool, para tener una comunidad de pago yo andaba repartido en cuatro h
 ## Respuesta rápida
 
 Skool es una plataforma para crear y administrar una comunidad online de pago (o gratuita): mezcla un feed tipo foro, cursos en video, videollamadas en vivo y cobro de membresías, todo en un mismo lugar. Fue fundada en 2019 por Sam Ovens y Daniel Kang, tiene sede en Los Ángeles, y en 2024 Alex Hormozi se asoció con la empresa para crear The Skool Games.
+
+## ¿Para qué sirve Skool exactamente?
+
+En corto, Skool sirve para esto:
+
+- Para alojar una comunidad de pago (o gratuita) con un feed tipo foro, en vez de un grupo de Facebook o un servidor de Discord.
+- Para vender y entregar cursos en video sin depender de otra plataforma aparte.
+- Para dar llamadas o clases en vivo sin pagar Zoom por su lado.
+- Para cobrar la membresía de tu comunidad (mensual o pago único) con el checkout integrado.
+- Para gamificar la participación de tus miembros con puntos y niveles.
+
+Si solo necesitas una de esas cosas por separado, puede que no te compense. Pero si necesitas varias a la vez — que es el caso de la mayoría de quienes venden cursos o acompañamiento online — ahí es donde Skool se nota.
 
 ## Qué incluye Skool
 
@@ -63,5 +78,7 @@ Si quieres aprovecharlo bien, convéncete primero de esto:
 - Usa el período de prueba para probar la estructura (cursos, canales, eventos) antes de abrir el cobro a tus primeros miembros.
 
 ---
+
+Si quieres el detalle completo de cuánto cuesta cada plan con ejemplos reales, lee [cuánto cuesta Skool al mes](/blog/cuanto-cuesta-skool-al-mes/). Y si te preguntas quién está detrás de la plataforma, te lo cuento en [quién es el dueño de Skool](/blog/quien-es-el-dueno-de-skool/).
 
 ¿Quieres que te ayude a montar tu comunidad en Skool o a mejorar la que ya tienes? Sigue [los artículos de Skool en este blog](/blog/skool/) — voy a ir publicando el paso a paso completo, con capturas de mis propias comunidades.
