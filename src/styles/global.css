@@ -428,19 +428,18 @@ main.container {
 
 /* ---- Blog listing ---- */
 
-.blog-toolbar {
+.blog-search-row {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 1.5rem 0 2.5rem;
+  justify-content: center;
+  margin: 1.75rem 0 1.25rem;
 }
 
 .blog-categories {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .blog-categories a {
@@ -470,11 +469,11 @@ main.container {
   gap: 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  padding: 0.6rem 1.1rem;
+  padding: 0.7rem 1.25rem;
   background: var(--color-surface);
   color: var(--color-text-muted);
-  flex: 1 1 240px;
-  max-width: 320px;
+  width: 100%;
+  max-width: 480px;
 }
 
 .blog-search input {
@@ -487,6 +486,92 @@ main.container {
   width: 100%;
 }
 
+.section-label {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+  padding-bottom: 0.7rem;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.most-read {
+  margin-bottom: 3.5rem;
+}
+
+.most-read-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.most-read-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.most-read-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.most-read-list .most-read-item:first-child {
+  padding-top: 0;
+}
+
+.most-read-list .most-read-item:last-child {
+  border-bottom: none;
+}
+
+.most-read-item[hidden] {
+  display: none;
+}
+
+.most-read-item-media {
+  width: 140px;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+}
+
+.most-read-item-body h3 {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.most-read-item--placeholder .most-read-item-media {
+  opacity: 0.55;
+}
+
+.most-read-item--placeholder h3 {
+  color: var(--color-text-muted);
+}
+
+.recent-section {
+  margin-bottom: 1rem;
+}
+
 .blog-featured {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -497,7 +582,6 @@ main.container {
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 1.5rem;
-  margin-bottom: 3.5rem;
   transition: border-color 0.15s ease;
 }
 
@@ -535,13 +619,9 @@ main.container {
   margin: 0 0 1.25rem;
 }
 
-.blog-grid-heading {
-  margin-bottom: 1.5rem;
-}
-
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -624,35 +704,47 @@ a.blog-card:hover {
 }
 
 .blog-featured-media[data-pillar="skool"],
-.blog-card-media[data-pillar="skool"] {
+.blog-card-media[data-pillar="skool"],
+.most-read-item-media[data-pillar="skool"] {
   background: linear-gradient(155deg, #fff2bf, #ffc700);
   color: var(--color-black);
 }
 
 .blog-featured-media[data-pillar="hotmart"],
-.blog-card-media[data-pillar="hotmart"] {
+.blog-card-media[data-pillar="hotmart"],
+.most-read-item-media[data-pillar="hotmart"] {
   background: linear-gradient(155deg, #3a2a0a, #de6a1f);
 }
 
 .blog-featured-media[data-pillar="claude"],
-.blog-card-media[data-pillar="claude"] {
+.blog-card-media[data-pillar="claude"],
+.most-read-item-media[data-pillar="claude"] {
   background: linear-gradient(155deg, #2a1f14, #c96442);
 }
 
 @media (max-width: 760px) {
-  .blog-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   .blog-search {
-    flex: none;
     max-width: none;
   }
 
   .blog-featured {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .most-read-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .most-read-item-media {
+    width: 96px;
   }
 }
 
