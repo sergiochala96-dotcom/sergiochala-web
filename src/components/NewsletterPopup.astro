@@ -6,7 +6,8 @@
     <button type="button" class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Cerrar">&times;</button>
 
     <div class="newsletter-popup-media">
-      <img src="/images/sergio-popup.png" alt="Sergio Chala" width="1024" height="1536" />
+      <img class="newsletter-popup-img-desktop" src="/images/sergio-popup-festival.png" alt="Sergio Chala" width="1254" height="1254" />
+      <img class="newsletter-popup-img-mobile" src="/images/sergio-popup-festival-wide.png" alt="Sergio Chala" width="681" height="311" />
     </div>
 
     <div class="newsletter-popup-body">
@@ -43,10 +44,18 @@
   const backdrop = document.getElementById('newsletter-popup-backdrop');
   const form = document.getElementById('newsletter-popup-form');
   const successMsg = document.getElementById('newsletter-popup-success');
-  const STORAGE_KEY = 'sc-newsletter-popup-shown';
+  const SUBSCRIBED_KEY = 'sc-newsletter-subscribed';
 
   function closePopup() {
     popup?.setAttribute('hidden', '');
+  }
+
+  function isAlreadySubscribed() {
+    try {
+      return localStorage.getItem(SUBSCRIBED_KEY) === '1';
+    } catch (_) {
+      return false;
+    }
   }
 
   form?.addEventListener('submit', () => {
@@ -54,22 +63,18 @@
     // para no sacar a la persona de la página con la pantalla de Systeme.io.
     form.hidden = true;
     if (successMsg) successMsg.hidden = false;
+    try {
+      localStorage.setItem(SUBSCRIBED_KEY, '1');
+    } catch (_) {
+      /* private mode or storage blocked: ignore */
+    }
     setTimeout(closePopup, 3000);
   });
 
-  try {
-    if (popup && !sessionStorage.getItem(STORAGE_KEY)) {
-      setTimeout(() => {
-        popup.removeAttribute('hidden');
-        try {
-          sessionStorage.setItem(STORAGE_KEY, '1');
-        } catch (_) {
-          /* private mode or storage blocked: ignore */
-        }
-      }, 60000);
-    }
-  } catch (_) {
-    /* private mode or storage blocked: show once per load as fallback */
+  if (popup && !isAlreadySubscribed()) {
+    setTimeout(() => {
+      popup.removeAttribute('hidden');
+    }, 10000);
   }
 
   closeBtn?.addEventListener('click', closePopup);

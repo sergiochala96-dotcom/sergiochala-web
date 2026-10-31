@@ -968,12 +968,12 @@ article.post th {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   max-width: 740px;
   width: 100%;
   max-height: 90vh;
   overflow: auto;
-  background: var(--color-white);
+  background: var(--color-accent);
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 }
@@ -983,23 +983,26 @@ article.post th {
   top: 0.75rem;
   right: 0.75rem;
   z-index: 2;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   border: none;
-  background: rgba(17, 17, 17, 0.08);
-  color: var(--color-black);
-  font-size: 1.3rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 1.5rem;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
 .newsletter-popup-close:hover {
-  background: rgba(17, 17, 17, 0.16);
+  background: #2a2a2a;
 }
 
 .newsletter-popup-media {
-  background: var(--color-surface);
+  background: var(--color-black);
   overflow: hidden;
 }
 
@@ -1010,9 +1013,13 @@ article.post th {
   object-position: top center;
 }
 
+.newsletter-popup-img-mobile {
+  display: none;
+}
+
 .newsletter-popup-body {
   padding: 2rem;
-  color: var(--color-text);
+  color: var(--color-black);
 }
 
 .newsletter-popup-eyebrow {
@@ -1032,15 +1039,15 @@ article.post th {
 }
 
 .newsletter-popup-body h2 .highlight {
-  background: var(--color-accent);
-  color: var(--color-black);
+  background: var(--color-black);
+  color: var(--color-accent);
   padding: 0 0.3rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
 
 .newsletter-popup-text {
-  color: var(--color-text-muted);
+  color: var(--color-black);
   font-size: 0.9rem;
   margin: 0 0 1.5rem;
 }
@@ -1062,6 +1069,7 @@ article.post th {
   gap: 0.35rem;
   font-size: 0.85rem;
   font-weight: 600;
+  color: var(--color-black);
 }
 
 .newsletter-popup-form input {
@@ -1069,9 +1077,9 @@ article.post th {
   font-size: 0.95rem;
   padding: 0.7rem 0.9rem;
   border-radius: 8px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text);
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 .newsletter-popup-form input::placeholder {
@@ -1085,6 +1093,13 @@ article.post th {
 .newsletter-popup-form .btn {
   width: 100%;
   text-align: center;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: none;
+}
+
+.newsletter-popup-form .btn:hover {
+  background: #2a2a2a;
 }
 
 .newsletter-popup-success p {
@@ -1111,12 +1126,20 @@ article.post th {
 
   .newsletter-popup-media {
     aspect-ratio: auto;
-    height: 120px;
+    height: 110px;
     max-height: none;
   }
 
+  .newsletter-popup-img-desktop {
+    display: none;
+  }
+
+  .newsletter-popup-img-mobile {
+    display: block;
+  }
+
   .newsletter-popup-media img {
-    object-position: center 20%;
+    object-position: center;
   }
 
   .newsletter-popup-body {
