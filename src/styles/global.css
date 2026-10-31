@@ -1054,6 +1054,7 @@ a.blog-card:hover {
   gap: 0.6rem;
 }
 
+.post a.post-share-btn,
 .post-share-btn {
   display: flex;
   align-items: center;
@@ -1062,12 +1063,15 @@ a.blog-card:hover {
   height: 40px;
   border-radius: 999px;
   color: var(--color-white);
+  text-decoration: none;
   border: none;
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
+.post a.post-share-btn:hover,
 .post-share-btn:hover {
+  text-decoration: none;
   transform: translateY(-2px);
   opacity: 0.85;
 }
