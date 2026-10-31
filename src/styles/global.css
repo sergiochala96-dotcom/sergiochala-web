@@ -268,17 +268,30 @@ body.has-progress .site-header {
 
 .nav-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 38px;
+  align-items: center;
+  gap: 0.55rem;
   height: 38px;
+  padding: 0 1rem;
   border-radius: 999px;
   border: 1px solid var(--color-border);
   background: var(--color-white);
   cursor: pointer;
   flex-shrink: 0;
-  padding: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.nav-toggle-label {
+  white-space: nowrap;
+}
+
+.nav-toggle-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
 .nav-toggle-bar {
@@ -289,15 +302,15 @@ body.has-progress .site-header {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
 
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
   opacity: 0;
 }
 
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(4) {
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
 
@@ -350,6 +363,10 @@ body.has-progress .site-header {
   .main-nav ul a {
     display: block;
     padding: 0.85rem 0.25rem;
+  }
+
+  .nav-pill-actions {
+    margin-left: auto;
   }
 
   .nav-pill-actions .nav-cta {
