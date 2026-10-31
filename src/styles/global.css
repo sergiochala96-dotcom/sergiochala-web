@@ -907,6 +907,10 @@ a.blog-card:hover {
   align-items: start;
 }
 
+.post-main :is(h2, h3, h4, h5, h6) {
+  scroll-margin-top: 130px;
+}
+
 .post-toc {
   position: sticky;
   top: 140px;
