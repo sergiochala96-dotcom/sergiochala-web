@@ -83,7 +83,7 @@
 
     function onScroll() {
       if (shown) return;
-      if (scrollPercent() >= 70) {
+      if (scrollPercent() >= 90) {
         shown = true;
         popup.removeAttribute('hidden');
         window.removeEventListener('scroll', onScroll);
