@@ -73,7 +73,11 @@ const dateFmt = (d: Date) =>
       <div class="most-read-grid">
         <a class="blog-featured" href={`/blog/${featured.id}/`}>
           <div class="blog-featured-media" data-pillar={featured.data.pillar}>
-            <span>{pillarLabels[featured.data.pillar]}</span>
+            {featured.data.coverImage ? (
+              <img src={featured.data.coverImage} alt={featured.data.title} width="760" height="475" />
+            ) : (
+              <span>{pillarLabels[featured.data.pillar]}</span>
+            )}
           </div>
           <div class="blog-featured-copy">
             <p class="blog-featured-meta">
@@ -94,7 +98,11 @@ const dateFmt = (d: Date) =>
                   href={`/blog/${item.post.id}/`}
                   data-search={`${item.post.data.title} ${item.post.data.description}`.toLowerCase()}
                 >
-                  <div class="most-read-item-media" data-pillar={item.post.data.pillar} />
+                  <div class="most-read-item-media" data-pillar={item.post.data.pillar}>
+                    {item.post.data.coverImage && (
+                      <img src={item.post.data.coverImage} alt={item.post.data.title} width="140" height="88" />
+                    )}
+                  </div>
                   <div class="most-read-item-body">
                     <p class="post-meta">
                       {dateFmt(item.post.data.pubDate)} · <span class="pillar-tag">{pillarLabels[item.post.data.pillar]}</span>
@@ -132,7 +140,11 @@ const dateFmt = (d: Date) =>
               data-search={`${item.post.data.title} ${item.post.data.description}`.toLowerCase()}
             >
               <div class="blog-card-media" data-pillar={item.post.data.pillar}>
-                <span>{pillarLabels[item.post.data.pillar]}</span>
+                {item.post.data.coverImage ? (
+                  <img src={item.post.data.coverImage} alt={item.post.data.title} width="400" height="250" />
+                ) : (
+                  <span>{pillarLabels[item.post.data.pillar]}</span>
+                )}
               </div>
               <p class="post-meta">
                 {dateFmt(item.post.data.pubDate)} · <span class="pillar-tag">{pillarLabels[item.post.data.pillar]}</span>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import { author } from '../../../data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -38,7 +39,7 @@ const articleJsonLd = {
   dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
   author: {
     '@type': 'Person',
-    name: 'Sergio Chala',
+    name: author.name,
   },
   mainEntityOfPage: postUrl,
 };
@@ -81,16 +82,24 @@ const faqJsonLd = post.data.faq.length
   <section class="post-hero full-bleed">
     <div class="post-hero-inner">
       <div class="post-hero-media" data-pillar={post.data.pillar}>
-        <span>{pillarLabel}</span>
+        {post.data.coverImage ? (
+          <img src={post.data.coverImage} alt={post.data.title} width="560" height="350" />
+        ) : (
+          <span>{pillarLabel}</span>
+        )}
       </div>
       <div class="post-hero-copy">
         <span class="pillar-tag">{pillarLabel}</span>
         <h1>{post.data.title}</h1>
         <p class="post-hero-desc">{post.data.description}</p>
         <div class="post-author">
-          <div class="post-author-avatar">SC</div>
+          {author.avatar ? (
+            <img class="post-author-avatar post-author-avatar-img" src={author.avatar} alt={author.name} width="40" height="40" />
+          ) : (
+            <div class="post-author-avatar">SC</div>
+          )}
           <div class="post-author-meta">
-            <strong>Sergio Chala</strong>
+            <strong>{author.name}</strong>
             <span>
               {dateFmt(post.data.pubDate)}
               {post.data.updatedDate && <> · Actualizado el {dateFmt(post.data.updatedDate)}</>}

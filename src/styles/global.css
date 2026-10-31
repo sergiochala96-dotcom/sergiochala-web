@@ -87,21 +87,21 @@ a:hover {
   top: 0;
   left: 0;
   width: 0%;
-  height: 3px;
+  height: 6px;
   background: linear-gradient(90deg, #ffc700, #ff8a00);
   z-index: 70;
 }
 
 body.has-progress {
-  padding-top: 41px;
+  padding-top: 6px;
 }
 
 body.has-progress .marquee-bar {
-  top: 3px;
+  display: none;
 }
 
 body.has-progress .site-header {
-  top: 41px;
+  top: 6px;
 }
 
 /* ---- Top marquee ---- */
@@ -577,6 +577,21 @@ main.container.container--wide {
   flex-shrink: 0;
   aspect-ratio: 16 / 10;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-featured-media,
+.blog-card-media,
+.most-read-item-media {
+  position: relative;
+}
+
+.blog-featured-media img,
+.blog-card-media img,
+.most-read-item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .most-read-item-body h3 {
@@ -616,6 +631,7 @@ main.container.container--wide {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   transition: opacity 0.15s ease;
+  overflow: hidden;
 }
 
 .blog-featured:hover .blog-featured-media {
@@ -677,6 +693,7 @@ a.blog-card:hover {
   font-size: 1rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 .blog-card h3 {
@@ -794,7 +811,8 @@ a.blog-card:hover {
 
 .post-hero {
   background: var(--color-surface);
-  margin: 1.5rem 0 2.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
   padding: 2.5rem 0;
 }
 
@@ -818,6 +836,13 @@ a.blog-card:hover {
   color: var(--color-white);
   font-weight: 700;
   letter-spacing: 0.03em;
+  overflow: hidden;
+}
+
+.post-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .post-hero-copy {
@@ -855,6 +880,10 @@ a.blog-card:hover {
   font-weight: 700;
   font-size: 0.85rem;
   flex-shrink: 0;
+}
+
+.post-author-avatar-img {
+  object-fit: cover;
 }
 
 .post-author-meta {
