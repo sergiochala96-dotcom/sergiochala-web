@@ -90,11 +90,24 @@ img {
 }
 
 a {
+  color: var(--color-black);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+/* Enlaces dentro de la redacción de un artículo: azules, sin subrayado hasta el hover */
+.post a {
   color: var(--color-link);
   text-decoration: none;
 }
 
-a:hover {
+.post a:hover {
   text-decoration: underline;
   text-decoration-color: var(--color-link);
   text-decoration-thickness: 2px;
