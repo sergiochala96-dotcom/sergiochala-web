@@ -1,9 +1,78 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSection from '../../components/NewsletterSection.astro';
+
+const timeline = [
+  {
+    year: '2017',
+    title: 'Mis primeros pasos',
+    text: 'Empecé a meterme de lleno en el mundo digital: probando, aprendiendo de internet y entendiendo cómo funciona un negocio online desde cero.',
+  },
+  {
+    year: '2021',
+    title: 'Primera comunidad y primeros productos',
+    text: 'Monté mis primeros proyectos digitales a mano, plantilla por plantilla. Ahí entendí lo que cuesta construir algo propio en internet.',
+  },
+  {
+    year: '2022',
+    title: 'Hotmart y los infoproductos',
+    text: 'Empecé a vender cursos e infoproductos en Hotmart, aprendiendo en el camino qué funciona de verdad y qué es puro humo.',
+  },
+  {
+    year: '2023',
+    title: 'Skool y la comunidad InfoCreators Club',
+    text: 'Encontré en Skool la forma de construir comunidad de verdad. Así nació InfoCreators Club, el espacio donde hoy enseño lo que voy aprendiendo.',
+  },
+  {
+    year: '2024–2026',
+    title: 'La era de la IA (y Skooly)',
+    text: 'Empecé a usar Claude para automatizar y escalar todo lo que antes hacía a mano, y a construir Skooly, mi propia aplicación para creadores de Skool.',
+  },
+];
 ---
 <Layout title="Sobre mí" description="Quién es Sergio Chala y cuál es su experiencia con Skool, Hotmart y Claude.">
-  <section class="hero">
-    <h1>Sobre mí</h1>
-    <p>Estoy preparando esta sección para contar mi historia completa. Mientras tanto, puedes leer sobre mi experiencia en cada artículo del <a href="/blog/">blog</a>.</p>
+  <section class="about-hero full-bleed">
+    <div class="full-bleed-inner about-hero-inner">
+      <p class="about-hero-eyebrow">¡Hola! Soy</p>
+      <h1>Sergio</h1>
+      <div class="about-hero-media">
+        <img src="/images/sergio-hero.png" alt="Sergio Chala" width="900" height="600" />
+      </div>
+      <div class="about-hero-copy">
+        <h2>AI CEO · Emprendedor obsesionado con la innovación, mentor y consultor.</h2>
+        <p>
+          Llevo años construyendo negocios digitales: comunidades, cursos e infoproductos, y ahora
+          automatizando todo con inteligencia artificial. En este sitio comparto lo que a mí me ha
+          funcionado de verdad, con capturas de mis propias cuentas y sin promesas de resultados
+          garantizados.
+        </p>
+        <p>
+          Hoy acompaño a otros emprendedores a construir su propio ecosistema digital en Skool y
+          Hotmart, y a quitarse trabajo mecánico de encima usando Claude.
+        </p>
+      </div>
+    </div>
   </section>
+
+  <section class="about-timeline">
+    <h2 class="section-label">Mi camino hasta aquí</h2>
+    <div class="timeline">
+      <div class="timeline-line" aria-hidden="true"></div>
+      {timeline.map((item, index) => (
+        <div class={`timeline-item ${index % 2 === 0 ? 'timeline-item--up' : 'timeline-item--down'}`}>
+          <div class="timeline-card">
+            <span class="timeline-year">{item.year}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <div class="timeline-media" aria-hidden="true">
+              <span>Imagen próximamente</span>
+            </div>
+          </div>
+          <span class="timeline-dot" aria-hidden="true"></span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <NewsletterSection />
 </Layout>

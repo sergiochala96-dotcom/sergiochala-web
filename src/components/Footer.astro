@@ -1,12 +1,140 @@
 ---
 const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/sobre-mi/', label: 'Sobre mí' },
+  { href: '/servicios/', label: 'Servicios' },
+  { href: '/contacto/', label: 'Contacto' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/recursos/', label: 'Recursos Gratuitos' },
+];
+
+const socialLinks = [
+  { href: 'https://www.instagram.com/sergiochala/', label: 'Instagram', icon: 'instagram' },
+  { href: 'https://www.youtube.com/@sergiochalav/featured?sub_confirmation=1', label: 'YouTube', icon: 'youtube' },
+  { href: 'https://www.skool.com/infocreators-club-pro-6633/about', label: 'Skool', icon: 'skool' },
+];
+
+const madeWith = ['para Colombia', 'para México', 'para Ecuador', 'para España', 'para los emprendedores', 'para Perú'];
 ---
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; {year} Sergio Chala.</p>
-    <p>
-      Sergio Chala no es empleado ni representante de Skool, Hotmart ni Anthropic (Claude).
-      Este sitio comparte su experiencia personal usando esas plataformas.
-    </p>
+<footer class="site-footer-dark">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link" aria-label="Sergio Chala">
+          <span class="footer-logo"></span>
+        </a>
+        <p class="footer-tagline">
+          Marca personal de Sergio Chala: comunidad, cursos y automatización con IA.
+        </p>
+        <div class="footer-social">
+          {socialLinks.map((social) => (
+            <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="footer-social-link">
+              {social.icon === 'instagram' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+                </svg>
+              )}
+              {social.icon === 'youtube' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                  <rect x="2" y="5.5" width="20" height="13" rx="4" stroke="currentColor" stroke-width="1.8" />
+                  <path d="M10.5 9.3L15 12L10.5 14.7V9.3Z" fill="currentColor" />
+                </svg>
+              )}
+              {social.icon === 'skool' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8" />
+                  <path d="M12 7.2C9.9 7.2 8.3 8.2 8.3 9.6C8.3 12.6 15.7 11.1 15.7 14.3C15.7 15.8 14 16.8 12 16.8C10 16.8 8.3 15.9 8.3 14.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del sitio">
+        <p class="footer-col-title">Navegación</p>
+        <ul>
+          {navLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="footer-made">
+        <p class="footer-col-title">Hecho con</p>
+        <p class="footer-made-line">
+          Hecho con <span class="footer-heart">♥</span>
+          <span class="footer-made-cycle" aria-hidden="true">
+            {madeWith.map((item) => <span>{item}</span>)}
+          </span>
+          <span class="sr-only">para toda Latinoamérica y España</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        Sergio Chala no es empleado ni representante de Skool, Hotmart ni Anthropic (Claude).
+        Este sitio comparte su experiencia personal usando esas plataformas.
+      </p>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">Copyright © {year} Neobrand Club. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="/politica-de-privacidad/">Políticas de Privacidad</a>
+          <span aria-hidden="true">|</span>
+          <a href="/terminos-y-condiciones/">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
+
+<style>
+  .footer-made-cycle {
+    position: relative;
+    display: inline-block;
+    height: 1.3em;
+    min-width: 17ch;
+    vertical-align: bottom;
+  }
+
+  .footer-made-cycle span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    color: var(--color-accent);
+    font-weight: 600;
+    opacity: 0;
+    animation: footer-cycle 18s infinite;
+  }
+
+  .footer-made-cycle span:nth-child(1) { animation-delay: 0s; }
+  .footer-made-cycle span:nth-child(2) { animation-delay: 3s; }
+  .footer-made-cycle span:nth-child(3) { animation-delay: 6s; }
+  .footer-made-cycle span:nth-child(4) { animation-delay: 9s; }
+  .footer-made-cycle span:nth-child(5) { animation-delay: 12s; }
+  .footer-made-cycle span:nth-child(6) { animation-delay: 15s; }
+
+  @keyframes footer-cycle {
+    0%, 2% { opacity: 0; transform: translateY(6px); }
+    5%, 13% { opacity: 1; transform: translateY(0); }
+    16%, 100% { opacity: 0; transform: translateY(-6px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-made-cycle span {
+      animation: none;
+      position: static;
+      opacity: 1;
+      display: none;
+    }
+    .footer-made-cycle span:first-child {
+      display: inline;
+    }
+  }
+</style>

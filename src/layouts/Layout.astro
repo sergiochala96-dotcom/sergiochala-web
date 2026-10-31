@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   wide?: boolean;
   progress?: boolean;
+  darkHero?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   description = 'Marca personal de Sergio Chala: cursos, recursos y un blog sobre Skool, Hotmart y Claude.',
   wide = false,
   progress = false,
+  darkHero = false,
 } = Astro.props;
 const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
 ---
@@ -42,7 +44,7 @@ const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
   </head>
-  <body class={progress ? 'has-progress' : ''}>
+  <body class={`${progress ? 'has-progress' : ''} ${darkHero ? 'dark-hero-page' : ''}`.trim()}>
     {progress && <div class="reading-progress" id="reading-progress"></div>}
     <Header />
     <main class={`container ${wide ? 'container--wide' : ''}`}>

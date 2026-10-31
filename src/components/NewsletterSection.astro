@@ -1,0 +1,47 @@
+---
+---
+<section class="newsletter-section full-bleed">
+  <div class="full-bleed-inner newsletter-section-inner">
+    <div class="newsletter-section-media">
+      <img src="/images/sergio-popup-festival.png" alt="Sergio Chala" width="700" height="700" loading="lazy" />
+    </div>
+
+    <div class="newsletter-section-body">
+      <p class="newsletter-section-eyebrow">Únete gratis</p>
+      <h2>No te pierdas nada de <span class="highlight">Skool, Hotmart y Claude</span></h2>
+      <p class="newsletter-section-text">Te aviso cuando publique un artículo nuevo. Sin spam.</p>
+
+      <form method="post" action="https://systeme.io/embedded/46220649/subscription" target="newsletter-section-frame" class="newsletter-section-form" id="newsletter-section-form">
+        <label class="sr-only" for="newsletter-section-name">Nombre</label>
+        <input id="newsletter-section-name" type="text" name="surname" placeholder="Tu nombre" required />
+        <label class="sr-only" for="newsletter-section-email">Email</label>
+        <input id="newsletter-section-email" type="email" name="email" placeholder="tu@email.com" required />
+        <button type="submit" class="cta cta-accent">Quiero suscribirme</button>
+      </form>
+
+      <div class="newsletter-section-success" id="newsletter-section-success" hidden>
+        <p>¡Listo! Ya estás suscrito. Te aviso cuando publique un artículo nuevo.</p>
+      </div>
+
+      <div class="newsletter-section-trust">
+        <span>Artículos nuevos cada semana</span>
+        <span>Sin spam, solo lo útil</span>
+        <span>Capturas y casos reales</span>
+      </div>
+    </div>
+  </div>
+
+  <iframe name="newsletter-section-frame" class="newsletter-popup-frame" aria-hidden="true" tabindex="-1"></iframe>
+</section>
+
+<script>
+  const forms = document.querySelectorAll('.newsletter-section-form');
+  forms.forEach((form) => {
+    form.addEventListener('submit', () => {
+      const htmlForm = form as HTMLFormElement;
+      const success = htmlForm.parentElement?.querySelector('.newsletter-section-success') as HTMLElement | null;
+      htmlForm.hidden = true;
+      if (success) success.hidden = false;
+    });
+  });
+</script>

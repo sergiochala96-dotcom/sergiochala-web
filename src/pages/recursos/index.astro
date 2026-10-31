@@ -1,9 +1,93 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSection from '../../components/NewsletterSection.astro';
+
+const freeResources = [
+  {
+    title: '[KIT] Plantilla para lanzar tu comunidad en Skool',
+    text: 'Una guía paso a paso para ordenar el lanzamiento de tu comunidad antes de abrirla al público.',
+    cta: 'Obtener gratis',
+  },
+  {
+    title: '[GUÍA] Cómo estructurar tu primer infoproducto en Hotmart',
+    text: 'El checklist que uso antes de subir cualquier curso o producto digital a Hotmart.',
+    cta: 'Obtener gratis',
+  },
+];
+
+const paidResources = [
+  {
+    title: 'Toma mi Curso: InfoCreators Club',
+    text: 'Mi comunidad en Skool sobre comunidades digitales, infoproductos e inteligencia artificial.',
+    cta: 'Ver en Skool',
+    href: 'https://www.skool.com/infocreators-club-pro-6633/about',
+  },
+  {
+    title: 'Mentoría 1 a 1 (próximamente)',
+    text: 'Acompañamiento personalizado para montar o escalar tu ecosistema digital.',
+    cta: 'Más información',
+    href: '#',
+  },
+];
 ---
-<Layout title="Recursos Gratuitos" description="Plantillas y guías gratuitas de Sergio Chala sobre Skool, Hotmart y Claude.">
-  <section class="hero">
-    <h1>Recursos gratuitos</h1>
-    <p>Muy pronto vas a poder descargar aquí plantillas y guías gratuitas sobre Skool, Hotmart y Claude.</p>
+<Layout title="Recursos Gratuitos" description="Plantillas y guías gratuitas de Sergio Chala sobre Skool, Hotmart y Claude." wide>
+  <section class="resources-section">
+    <aside class="resources-author">
+      <img class="resources-author-photo" src="/images/sergio-avatar.jpg" alt="Sergio Chala" width="160" height="160" />
+      <h2>Sergio Chala</h2>
+      <p class="resources-author-role">AI CEO · Mentor y consultor en negocios digitales</p>
+      <div class="resources-author-social">
+        <a href="https://www.instagram.com/sergiochala/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@sergiochalav/featured?sub_confirmation=1" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+            <rect x="2" y="5.5" width="20" height="13" rx="4" stroke="currentColor" stroke-width="1.8" />
+            <path d="M10.5 9.3L15 12L10.5 14.7V9.3Z" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://www.skool.com/infocreators-club-pro-6633/about" target="_blank" rel="noopener noreferrer" aria-label="Skool">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 7.2C9.9 7.2 8.3 8.2 8.3 9.6C8.3 12.6 15.7 11.1 15.7 14.3C15.7 15.8 14 16.8 12 16.8C10 16.8 8.3 15.9 8.3 14.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <div class="resources-grid">
+      <div class="resources-group">
+        <p class="resources-group-label">Gratis</p>
+        <div class="resources-cards">
+          {freeResources.map((item) => (
+            <div class="resource-card resource-card--free">
+              <span class="badge-soon">Próximamente</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a class="cta cta-accent" href="#">{item.cta}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="resources-group">
+        <p class="resources-group-label">De pago</p>
+        <div class="resources-cards">
+          {paidResources.map((item) => (
+            <div class="resource-card resource-card--paid">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a class="cta" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{item.cta}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   </section>
+
+  <NewsletterSection />
 </Layout>

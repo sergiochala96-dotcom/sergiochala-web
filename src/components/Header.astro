@@ -1,14 +1,5 @@
 ---
-const announcement = 'Prueba nuestra nueva aplicación para creadores de Skool, disponible por tiempo limitado.';
-const repeated = Array.from({ length: 8 });
 ---
-<div class="marquee-bar">
-  <div class="marquee-track">
-    {repeated.map(() => <span class="marquee-item">{announcement}</span>)}
-    {repeated.map(() => <span class="marquee-item" aria-hidden="true">{announcement}</span>)}
-  </div>
-</div>
-
 <header class="site-header">
   <div class="nav-pill">
     <a href="/" class="brand">

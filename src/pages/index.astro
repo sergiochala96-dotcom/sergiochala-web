@@ -1,7 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NewsletterSection from '../components/NewsletterSection.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const pillarLabels: Record<string, string> = {
+  hotmart: 'Hotmart',
+  skool: 'Skool',
+  claude: 'Claude',
+};
+
+const dateFmt = (d: Date) =>
+  d.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
-<Layout title="Sergio Chala" description="Te ayudo a construir tu negocio digital — comunidad, cursos y automatización con IA — con lo que a mí me ha funcionado de verdad.">
+<Layout title="Sergio Chala" description="Te ayudo a construir tu negocio digital — comunidad, cursos y automatización con IA — con lo que a mí me ha funcionado de verdad." darkHero>
   <section class="hero-dark full-bleed">
     <div class="full-bleed-inner hero-dark-inner">
       <div class="hero-copy">
@@ -37,44 +53,54 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="section-pillars">
-    <h2>De qué hablo en el blog</h2>
-    <p class="section-sub">Tres pilares, todo basado en lo que uso yo mismo todos los días.</p>
-    <div class="pillars">
-      <a class="pillar-card" href="/blog/hotmart/">
-        <h3>Hotmart</h3>
-        <p>Cómo vender productos digitales y cursos en Hotmart.</p>
-      </a>
-      <a class="pillar-card" href="/blog/skool/">
-        <h3>Skool</h3>
-        <p>Cómo crear y administrar comunidades en Skool (y Skooly).</p>
-      </a>
-      <a class="pillar-card" href="/blog/claude/">
-        <h3>Claude</h3>
-        <p>Cómo uso Claude de Anthropic para crear contenido y productos.</p>
-      </a>
-    </div>
-  </section>
+  {latestPosts.length > 0 && (
+    <section class="section-latest-blog">
+      <h2>Últimos Blogs de Sergio...</h2>
+      <p class="section-sub">Lo más reciente sobre Skool, Hotmart y Claude.</p>
+      <div class="latest-blog-grid">
+        {latestPosts.map((post) => (
+          <a class="blog-card" href={`/blog/${post.id}/`}>
+            <div class="blog-card-media" data-pillar={post.data.pillar}>
+              {post.data.coverImage ? (
+                <img src={post.data.coverImage} alt={post.data.title} width="400" height="250" />
+              ) : (
+                <span>{pillarLabels[post.data.pillar]}</span>
+              )}
+            </div>
+            <p class="post-meta">
+              {dateFmt(post.data.pubDate)} · <span class="pillar-tag">{pillarLabels[post.data.pillar]}</span>
+            </p>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+          </a>
+        ))}
+      </div>
+      <div class="latest-blog-cta">
+        <a class="cta cta-accent" href="/blog/">Ir al blog →</a>
+      </div>
+    </section>
+  )}
 
-  <section id="metodo" class="section-steps">
-    <h2>Mi método</h2>
-    <p class="section-sub">Así es como yo construyo (y como te puedo ayudar a construir el tuyo).</p>
-    <div class="steps">
-      <div class="step">
-        <span class="step-number">1</span>
-        <h3>Define tu producto y tu nicho</h3>
-        <p>Antes de crear nada, claridad sobre a quién le sirves y qué problema le resuelves.</p>
+  <section class="section-youtube">
+    <div class="youtube-card">
+      <p class="youtube-watermark" aria-hidden="true">SERGIO CHALA</p>
+      <div class="youtube-card-copy">
+        <a class="youtube-go-link" href="https://www.youtube.com/@sergiochalav/featured?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Ir al canal →</a>
+        <h2>YouTube</h2>
+        <p class="youtube-channel-name">Sergio Chala</p>
+        <a class="youtube-play" href="https://www.youtube.com/@sergiochalav/featured?sub_confirmation=1" target="_blank" rel="noopener noreferrer" aria-label="Ir al canal de YouTube">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <path d="M8 6.5L18 12L8 17.5V6.5Z" fill="currentColor" />
+          </svg>
+        </a>
       </div>
-      <div class="step">
-        <span class="step-number">2</span>
-        <h3>Monta tu ecosistema</h3>
-        <p>Comunidad en Skool, cursos e infoproductos en Hotmart — todo conectado.</p>
-      </div>
-      <div class="step">
-        <span class="step-number">3</span>
-        <h3>Automatiza y escala con IA</h3>
-        <p>Uso Claude para crear contenido, estructurar el SEO y quitarme trabajo mecánico de encima.</p>
-      </div>
+    </div>
+    <div class="youtube-section-footer">
+      <p>
+        Videos sobre comunidades digitales, infoproductos e inteligencia artificial: todo lo que voy
+        aprendiendo construyendo mi propio negocio online.
+      </p>
+      <a class="youtube-cta-pill" href="https://www.youtube.com/@sergiochalav/featured?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Suscríbete <span>→</span></a>
     </div>
   </section>
 
@@ -107,4 +133,6 @@ import Layout from '../layouts/Layout.astro';
       </details>
     </div>
   </section>
+
+  <NewsletterSection />
 </Layout>

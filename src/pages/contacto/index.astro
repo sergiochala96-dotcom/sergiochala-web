@@ -1,9 +1,52 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSection from '../../components/NewsletterSection.astro';
+
+const reasons = [
+  'Tienes preguntas sobre Skool, Hotmart, Claude o negocios digitales.',
+  'Eres una marca y quieres proponerme una colaboración.',
+  'Necesitas un mentor o consultor para tu comunidad o tus infoproductos.',
+  'Quieres contratarme para una charla o capacitación.',
+];
 ---
 <Layout title="Contacto" description="Cómo contactar a Sergio Chala.">
-  <section class="hero">
-    <h1>Contacto</h1>
-    <p>Esta sección está en construcción — pronto agrego aquí una forma directa de escribirme.</p>
+  <section class="contact-section">
+    <div class="contact-info">
+      <h1>Contáctame si:</h1>
+      <ul class="contact-reasons">
+        {reasons.map((reason) => (
+          <li>
+            <span class="contact-check" aria-hidden="true">✓</span>
+            <span>{reason}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="contact-note">
+        Si tu pregunta es rápida, también puedes escribirme por Instagram
+        (<a href="https://www.instagram.com/sergiochala/" target="_blank" rel="noopener noreferrer">@sergiochala</a>).
+      </p>
+    </div>
+
+    <form class="contact-form" action="mailto:sergiochala96@gmail.com" method="get" enctype="text/plain">
+      <label>
+        Me llamo
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+      </label>
+      <label>
+        Mi correo electrónico es
+        <input type="email" name="email" placeholder="tu@email.com" required />
+      </label>
+      <label>
+        Y quiero decirte
+        <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+      </label>
+      <label class="contact-check-row">
+        <input type="checkbox" required />
+        <span>Acepto que este formulario abra mi cliente de correo para enviarte el mensaje.</span>
+      </label>
+      <button type="submit" class="cta">Enviar →</button>
+    </form>
   </section>
+
+  <NewsletterSection />
 </Layout>
