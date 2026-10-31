@@ -56,6 +56,21 @@ const imageURL = new URL(image, Astro.site).toString();
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
+    {import.meta.env.PROD && (
+      <>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8HK0GKFQZ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(...args: unknown[]) {
+            window.dataLayer.push(args);
+          }
+          // @ts-ignore
+          gtag('js', new Date());
+          // @ts-ignore
+          gtag('config', 'G-X8HK0GKFQZ');
+        </script>
+      </>
+    )}
   </head>
   <body class={`${progress ? 'has-progress' : ''} ${darkHero ? 'dark-hero-page' : ''}`.trim()}>
     {progress && <div class="reading-progress" id="reading-progress"></div>}
