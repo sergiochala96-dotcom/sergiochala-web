@@ -125,7 +125,7 @@ body.has-progress .site-header {
   left: 0;
   width: 100%;
   height: 38px;
-  background: #ffe9a8;
+  background: #ffd54f;
   overflow: hidden;
   z-index: 60;
   display: flex;
@@ -1100,7 +1100,8 @@ article.post th {
     radial-gradient(ellipse 55% 70% at 80% 45%, rgba(255, 106, 0, 0.38) 0%, transparent 65%),
     var(--color-black);
   color: var(--color-white);
-  padding: 2.5rem 0 3rem;
+  margin-top: -100px;
+  padding: 124px 0 3rem;
 }
 
 .hero-dark-inner {
@@ -1108,6 +1109,7 @@ article.post th {
   grid-template-columns: 1fr 1.5fr;
   gap: 2.5rem;
   align-items: stretch;
+  max-width: 1180px;
 }
 
 .hero-copy {
@@ -1231,7 +1233,7 @@ article.post th {
   justify-content: center;
   align-self: stretch;
   overflow: visible;
-  min-height: 620px;
+  min-height: 720px;
 }
 
 .hero-photo img {
@@ -1586,6 +1588,7 @@ article.post th {
 
 @media (max-width: 760px) {
   .hero-dark {
+    margin-top: 0;
     padding-top: 0;
     background:
       radial-gradient(circle at 80% 10%, rgba(255, 106, 0, 0.2) 0%, transparent 32%),
