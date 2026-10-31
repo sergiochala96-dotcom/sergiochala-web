@@ -3,5 +3,5 @@
 // y cambia `avatar` abajo con esa ruta, por ejemplo '/images/sergio-avatar.jpg'.
 export const author = {
   name: 'Sergio Chala',
-  avatar: null as string | null,
+  avatar: '/images/sergio-avatar.jpg' as string | null,
 };

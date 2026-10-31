@@ -2,6 +2,7 @@
 title: "¿Qué es Skool? Te lo cuento después de usarlo 2 años en mis propias comunidades"
 description: "Qué es Skool, qué incluye cada plan y qué he vivido yo usándolo más de 2 años con mis propias comunidades y ayudando a otras personas a crear la suya."
 pillar: "skool"
+coverImage: "/images/que-es-skool-cover.jpg"
 pubDate: 2026-10-29
 tags: ["skool", "comunidades online", "qué es skool"]
 sources:
