@@ -1103,7 +1103,7 @@ article.post th {
     var(--color-black);
   color: var(--color-white);
   margin-top: -100px;
-  padding: 110px 0 3rem;
+  padding: 170px 0 3rem;
 }
 
 .hero-dark-inner {
@@ -1609,7 +1609,7 @@ article.post th {
 
   .hero-photo {
     position: absolute;
-    top: 0;
+    top: 18px;
     left: 50%;
     width: 100vw;
     margin-left: -50vw;
