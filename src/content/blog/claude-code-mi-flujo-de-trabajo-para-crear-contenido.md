@@ -2,6 +2,7 @@
 title: "Claude Code: mi flujo de trabajo para crear contenido (y cómo construí este mismo sitio)"
 description: "Cómo uso Claude Code en la práctica para construir y mantener mi sitio web, y por qué para mí es la herramienta que más le cambió el juego a mi forma de trabajar."
 pillar: "claude"
+coverImage: "/images/claude-code-mi-flujo-de-trabajo-para-crear-contenido-cover.jpg"
 pubDate: 2026-10-31
 tags: ["claude code", "que es claude code", "claude code para que sirve", "flujo de trabajo claude code"]
 sources:

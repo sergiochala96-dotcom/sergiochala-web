@@ -2,6 +2,7 @@
 title: "¿Es legal Hotmart en Colombia? Lo que dice la normativa y mi experiencia facturando"
 description: "Si usar Hotmart es legal en Colombia, qué obligaciones tributarias puede tener un vendedor colombiano, y cómo lo he manejado yo mismo con más de 5 años vendiendo ahí. No es asesoría legal ni contable."
 pillar: "hotmart"
+coverImage: "/images/es-legal-hotmart-en-colombia-cover.jpg"
 pubDate: 2026-10-30
 tags: ["hotmart colombia", "es legal hotmart", "hotmart colombia impuestos", "facturar hotmart colombia"]
 sources:

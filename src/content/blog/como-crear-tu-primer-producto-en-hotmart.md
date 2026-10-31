@@ -2,6 +2,7 @@
 title: "Cómo crear tu primer producto digital en Hotmart (lo que aprendí con el mío en 2021)"
 description: "Los pasos reales para publicar tu primer producto en Hotmart, y lo que aprendí yo mismo subiendo el mío en 2021 sin tener ni idea de cómo iba a terminar."
 pillar: "hotmart"
+coverImage: "/images/como-crear-tu-primer-producto-en-hotmart-cover.jpg"
 pubDate: 2026-10-31
 tags: ["crear producto en hotmart", "primer producto digital", "como vender en hotmart", "hotmart productor"]
 sources:

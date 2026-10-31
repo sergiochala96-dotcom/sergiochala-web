@@ -2,6 +2,7 @@
 title: "Claude vs ChatGPT: diferencias reales (los uso los dos desde 2022-2023)"
 description: "Qué diferencia hay entre Claude y ChatGPT en la práctica, no en la teoría: quién los hace, cuánto cuestan, y qué noté yo mismo usándolos los dos para mi negocio digital."
 pillar: "claude"
+coverImage: "/images/diferencia-entre-claude-y-chatgpt-cover.jpg"
 pubDate: 2026-10-30
 tags: ["claude vs chatgpt", "diferencia entre claude y chatgpt", "claude o chatgpt", "comparar claude chatgpt"]
 sources:

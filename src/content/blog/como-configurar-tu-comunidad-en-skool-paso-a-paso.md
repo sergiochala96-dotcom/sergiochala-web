@@ -2,6 +2,7 @@
 title: "Cómo configurar tu comunidad en Skool, paso a paso (lo que aprendí montando InfoCreators Club)"
 description: "Los pasos para configurar tu comunidad en Skool desde cero, y lo que aprendí yo mismo montando InfoCreators Club y ayudando a más de 10 personas a hacer lo mismo."
 pillar: "skool"
+coverImage: "/images/como-configurar-tu-comunidad-en-skool-paso-a-paso-cover.jpg"
 pubDate: 2026-10-31
 tags: ["como configurar skool", "crear comunidad en skool", "skool paso a paso", "montar comunidad skool"]
 sources:

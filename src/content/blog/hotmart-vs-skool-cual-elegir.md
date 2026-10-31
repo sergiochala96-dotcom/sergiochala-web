@@ -2,6 +2,7 @@
 title: "Hotmart vs. Skool: ¿cuál elegir para tu negocio digital? (los uso los dos)"
 description: "La diferencia real entre Hotmart y Skool para vender online, y cuándo me ha funcionado usar cada uno — los uso los dos desde hace años en mis propios negocios."
 pillar: "hotmart"
+coverImage: "/images/hotmart-vs-skool-cual-elegir-cover.jpg"
 pubDate: 2026-10-31
 tags: ["hotmart vs skool", "skool o hotmart", "donde vender cursos online", "hotmart o skool cual elegir"]
 sources:

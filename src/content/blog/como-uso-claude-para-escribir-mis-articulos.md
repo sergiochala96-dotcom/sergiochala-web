@@ -2,6 +2,7 @@
 title: "Cómo uso Claude para escribir mis artículos (mi proceso real, paso a paso)"
 description: "El proceso real que uso con Claude para escribir cada artículo de este blog: de las 4 horas que me tomaba cada pieza en 2020 a cómo lo hago hoy."
 pillar: "claude"
+coverImage: "/images/como-uso-claude-para-escribir-mis-articulos-cover.jpg"
 pubDate: 2026-10-31
 tags: ["como usar claude para escribir", "claude para blog", "escribir articulos con ia", "claude para contenido"]
 sources:

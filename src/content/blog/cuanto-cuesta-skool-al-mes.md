@@ -2,6 +2,7 @@
 title: "¿Cuánto cuesta Skool al mes? Planes, comisiones y cuál te conviene"
 description: "Cuánto cobra Skool por mes en cada plan, cuánto te quita de comisión por cada venta, y cuándo conviene pasar de Hobby a Pro — con lo que he vivido yo probando los dos."
 pillar: "skool"
+coverImage: "/images/cuanto-cuesta-skool-al-mes-cover.jpg"
 pubDate: 2026-10-30
 tags: ["skool", "cuanto cuesta skool", "precio de skool", "planes de skool", "comision skool"]
 sources:

@@ -2,6 +2,7 @@
 title: "¿Claude IA es gratis? Así son el plan gratis y el plan Pro (yo pago desde junio de 2026)"
 description: "Si Claude tiene un plan gratuito de verdad, qué te deja hacer y qué no, y por qué yo mismo pasé al plan Pro — con lo que cambió en mi forma de trabajar desde que pago."
 pillar: "claude"
+coverImage: "/images/claude-ia-es-gratis-cover.jpg"
 pubDate: 2026-10-30
 tags: ["claude es gratis", "claude ia gratis", "plan gratis de claude", "claude pro precio"]
 sources:
