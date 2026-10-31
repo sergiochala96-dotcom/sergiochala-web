@@ -6,6 +6,7 @@
   --color-white: #ffffff;
   --color-accent: #ffc700;
   --color-accent-ink: #171717;
+  --color-link: #2563eb;
   --color-border: #e6e6e6;
   --color-surface: #fafafa;
   --max-width: 760px;
@@ -89,15 +90,15 @@ img {
 }
 
 a {
-  color: var(--color-black);
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  color: var(--color-link);
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration-thickness: 3px;
+  text-decoration: underline;
+  text-decoration-color: var(--color-link);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .container {

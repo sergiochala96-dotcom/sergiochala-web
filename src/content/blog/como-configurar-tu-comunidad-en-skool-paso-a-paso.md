@@ -30,7 +30,7 @@ Configurar tu comunidad en Skool toma pocos pasos: creas tu cuenta, eliges tu pl
 
 ## Paso a paso para configurar tu comunidad
 
-1. **Crea tu cuenta** en [skool.com](https://www.skool.com).
+1. **Crea tu cuenta** en [skool.com](https://www.skool.com/signup?ref=182fe0d3c1db4272a1f3e479073168be).
 2. **Elige tu plan**: Hobby (9 USD/mes, 10% de comisión) o Pro (99 USD/mes, 2,9% de comisión). Hazle cuentas a tu volumen esperado de ventas antes de decidir.
 3. **Ponle nombre, descripción e imagen** a tu comunidad — esto es lo primero que va a ver alguien antes de unirse.
 4. **Crea tu primer curso o canal de contenido**, aunque sea básico. No necesitas tenerlo todo al lanzar.
