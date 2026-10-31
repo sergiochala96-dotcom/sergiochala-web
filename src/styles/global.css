@@ -125,7 +125,7 @@ body.has-progress .site-header {
   left: 0;
   width: 100%;
   height: 38px;
-  background: #ffd54f;
+  background: #ffc700;
   overflow: hidden;
   z-index: 60;
   display: flex;
@@ -1106,7 +1106,7 @@ article.post th {
 
 .hero-dark-inner {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1.7fr;
   gap: 2.5rem;
   align-items: stretch;
   max-width: 1180px;
@@ -1127,13 +1127,13 @@ article.post th {
 
 .hero-copy h1 {
   color: var(--color-white);
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(2.2rem, 5.6vw, 3.7rem);
   margin: 0 0 1rem;
 }
 
 .hero-sub {
   color: #d4d4d4;
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   max-width: 480px;
   margin: 0 0 1.75rem;
 }
@@ -1249,10 +1249,11 @@ article.post th {
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid #ffffff22;
+  max-width: 480px;
 }
 
 .stat {
@@ -1261,14 +1262,16 @@ article.post th {
 }
 
 .stat-number {
-  font-size: 1.7rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-accent);
+  white-space: nowrap;
 }
 
 .stat-label {
   color: #d4d4d4;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  line-height: 1.3;
   margin-top: 0.25rem;
 }
 
