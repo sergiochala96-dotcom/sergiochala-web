@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { upcomingTopics, type UpcomingTopic } from '../data/upcomingTopics';
 
 interface Props {
@@ -14,6 +14,14 @@ const pillarLabels: Record<string, string> = {
   hotmart: 'Hotmart',
   skool: 'Skool',
   claude: 'Claude',
+};
+
+const allPublished = await getCollection('blog', ({ data }) => !data.draft);
+const counts = {
+  total: allPublished.length,
+  hotmart: allPublished.filter((p) => p.data.pillar === 'hotmart').length,
+  skool: allPublished.filter((p) => p.data.pillar === 'skool').length,
+  claude: allPublished.filter((p) => p.data.pillar === 'claude').length,
 };
 
 const featured = posts[0];
@@ -31,6 +39,12 @@ const otherItems: Item[] = [
   ...restPosts.map((post): Item => ({ kind: 'post', post })),
   ...placeholders.map((topic): Item => ({ kind: 'placeholder', topic })),
 ];
+
+const allItems: Item[] = [
+  ...posts.map((post): Item => ({ kind: 'post', post })),
+  ...placeholders.map((topic): Item => ({ kind: 'placeholder', topic })),
+];
+const ALL_GRID_FOLD = 9;
 
 // Todavía no tenemos analítica de lecturas, así que "más leídos" usa el
 // artículo más reciente como destacado y los siguientes como lista corta.
@@ -56,10 +70,10 @@ const dateFmt = (d: Date) =>
 </div>
 
 <nav class="blog-categories">
-  <a href="/blog/" class={!activePillar ? 'active' : ''}>Todo</a>
-  <a href="/blog/skool/" class={activePillar === 'skool' ? 'active' : ''}>Skool</a>
-  <a href="/blog/hotmart/" class={activePillar === 'hotmart' ? 'active' : ''}>Hotmart</a>
-  <a href="/blog/claude/" class={activePillar === 'claude' ? 'active' : ''}>Claude</a>
+  <a href="/blog/" class={!activePillar ? 'active' : ''}>Todo ({counts.total})</a>
+  <a href="/blog/skool/" class={activePillar === 'skool' ? 'active' : ''}>Skool ({counts.skool})</a>
+  <a href="/blog/hotmart/" class={activePillar === 'hotmart' ? 'active' : ''}>Hotmart ({counts.hotmart})</a>
+  <a href="/blog/claude/" class={activePillar === 'claude' ? 'active' : ''}>Claude ({counts.claude})</a>
 </nav>
 
 {posts.length === 0 && placeholders.length === 0 && (
@@ -168,6 +182,58 @@ const dateFmt = (d: Date) =>
     </section>
   )}
 
+  {allItems.length > 0 && (
+    <section class="all-blogs-section">
+      <h2 class="section-label">Todos los blogs ({allItems.length})</h2>
+      <div class="blog-grid" id="blog-grid-all">
+        {allItems.map((item, index) =>
+          item.kind === 'post' ? (
+            <a
+              class={`blog-card ${index >= ALL_GRID_FOLD ? 'is-extra' : ''}`}
+              href={`/blog/${item.post.id}/`}
+              data-search={`${item.post.data.title} ${item.post.data.description}`.toLowerCase()}
+            >
+              <div class="blog-card-media" data-pillar={item.post.data.pillar}>
+                {item.post.data.coverImage ? (
+                  <img src={item.post.data.coverImage} alt={item.post.data.title} width="400" height="250" />
+                ) : (
+                  <span>{pillarLabels[item.post.data.pillar]}</span>
+                )}
+              </div>
+              <p class="post-meta">
+                {dateFmt(item.post.data.pubDate)} · <span class="pillar-tag">{pillarLabels[item.post.data.pillar]}</span>
+              </p>
+              <h3>{item.post.data.title}</h3>
+              <p>{item.post.data.description}</p>
+            </a>
+          ) : (
+            <div
+              class={`blog-card blog-card--placeholder ${index >= ALL_GRID_FOLD ? 'is-extra' : ''}`}
+              data-search={item.topic.title.toLowerCase()}
+            >
+              <div class="blog-card-media" data-pillar={item.topic.pillar}>
+                <span>{pillarLabels[item.topic.pillar]}</span>
+              </div>
+              <p class="post-meta">
+                <span class="badge-soon">Próximamente</span>
+              </p>
+              <h3>{item.topic.title}</h3>
+              <p>Todavía estoy escribiendo este artículo.</p>
+            </div>
+          )
+        )}
+      </div>
+
+      {allItems.length > ALL_GRID_FOLD && (
+        <div class="blog-show-all">
+          <button type="button" class="cta" id="blog-show-all-btn">
+            Ver todos los blogs ({allItems.length})
+          </button>
+        </div>
+      )}
+    </section>
+  )}
+
   <p class="blog-search-empty" id="blog-search-empty" hidden>No encontré artículos con ese término.</p>
 </div>
 
@@ -188,5 +254,13 @@ const dateFmt = (d: Date) =>
     });
 
     if (emptyMsg) emptyMsg.hidden = visible !== 0 || query === '';
+  });
+
+  const showAllBtn = document.getElementById('blog-show-all-btn');
+  const allGrid = document.getElementById('blog-grid-all');
+
+  showAllBtn?.addEventListener('click', () => {
+    allGrid?.classList.add('is-expanded');
+    showAllBtn.hidden = true;
   });
 </script>

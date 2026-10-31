@@ -618,6 +618,27 @@ main.container.container--wide {
   margin-bottom: 1rem;
 }
 
+.all-blogs-section {
+  margin: 3rem 0 1rem;
+}
+
+#blog-grid-all .is-extra {
+  display: none;
+}
+
+#blog-grid-all.is-expanded .is-extra {
+  display: block;
+}
+
+#blog-search-scope [hidden] {
+  display: none !important;
+}
+
+.blog-show-all {
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
 .blog-card {
   display: block;
   text-decoration: none;
