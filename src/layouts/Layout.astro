@@ -10,6 +10,7 @@ interface Props {
   wide?: boolean;
   progress?: boolean;
   darkHero?: boolean;
+  image?: string;
 }
 
 const {
@@ -18,8 +19,11 @@ const {
   wide = false,
   progress = false,
   darkHero = false,
+  image = '/images/sergio-hero.png',
 } = Astro.props;
 const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const imageURL = new URL(image, Astro.site).toString();
 ---
 <!doctype html>
 <html lang="es">
@@ -40,9 +44,18 @@ const siteTitle = title === 'Sergio Chala' ? title : `${title} · Sergio Chala`;
     <meta name="generator" content={Astro.generator} />
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content="Sergio Chala" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
   </head>
   <body class={`${progress ? 'has-progress' : ''} ${darkHero ? 'dark-hero-page' : ''}`.trim()}>
     {progress && <div class="reading-progress" id="reading-progress"></div>}

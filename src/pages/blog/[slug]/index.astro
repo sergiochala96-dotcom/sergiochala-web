@@ -70,7 +70,13 @@ const faqJsonLd = post.data.faq.length
     }
   : null;
 ---
-<Layout title={post.data.title} description={post.data.description} wide progress>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.coverImage}
+  wide
+  progress
+>
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
