@@ -1108,16 +1108,74 @@ article.post th {
   border-color: var(--color-white);
 }
 
-.cta-ghost {
-  background: transparent;
+/* ---- Dark glass CTA (pulse + shine sweep) ---- */
+
+.cta-glass {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(40, 40, 40, 0.92), rgba(0, 0, 0, 0.96));
+  border-color: rgba(255, 255, 255, 0.18);
   color: var(--color-white);
-  border: 2px solid #ffffff55;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.cta-ghost:hover {
-  background: var(--color-white);
-  color: var(--color-black);
-  border-color: var(--color-white);
+.cta-glass:hover {
+  background: linear-gradient(180deg, rgba(55, 55, 55, 0.92), rgba(10, 10, 10, 0.96));
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: cta-shine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-shine {
+  0% {
+    left: -60%;
+  }
+  16% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.cta-pulse-glass {
+  animation: cta-pulse-glass 2.2s ease-in-out infinite;
+}
+
+@keyframes cta-pulse-glass {
+  0%,
+  100% {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 0 0 rgba(255, 199, 0, 0.55);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 0 10px rgba(255, 199, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-glass::before {
+    animation: none;
+  }
+
+  .cta-pulse-glass {
+    animation: none;
+  }
 }
 
 .hero-photo {
@@ -1393,9 +1451,6 @@ article.post th {
 .newsletter-popup-form .btn {
   width: 100%;
   text-align: center;
-  background: var(--color-black);
-  color: var(--color-white);
-  border: none;
 }
 
 .newsletter-popup-form .btn:hover {
