@@ -6,10 +6,4 @@ export type UpcomingTopic = {
   pillar: 'hotmart' | 'skool' | 'claude';
 };
 
-export const upcomingTopics: UpcomingTopic[] = [
-  { title: 'Cómo crear tu primer producto digital en Hotmart', pillar: 'hotmart' },
-  { title: 'Hotmart vs. Skool: cuál elegir para tu negocio', pillar: 'hotmart' },
-  { title: 'Cómo uso Claude para escribir mis artículos', pillar: 'claude' },
-  { title: 'Claude Code: mi flujo de trabajo para crear contenido', pillar: 'claude' },
-  { title: 'Cómo configurar tu comunidad en Skool paso a paso', pillar: 'skool' },
-];
+export const upcomingTopics: UpcomingTopic[] = [];
