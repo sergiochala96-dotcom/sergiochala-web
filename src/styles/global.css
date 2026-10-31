@@ -383,6 +383,7 @@ body.has-progress .site-header {
     text-align: center;
     padding: 0.7rem 0.9rem;
     font-size: 0.85rem;
+    color: var(--color-white);
   }
 
   .brand img {
