@@ -360,6 +360,11 @@ main.container {
   max-width: 920px;
 }
 
+/* La newsletter ya trae su propio espaciado inferior y se une directo al footer */
+main.container:has(> .newsletter-section) {
+  padding-bottom: 0;
+}
+
 main.container.container--wide {
   max-width: 1320px;
 }
@@ -1808,10 +1813,15 @@ article.post th {
 /* ---- Newsletter section (inline, not popup) ---- */
 
 .newsletter-section {
-  background: var(--color-black);
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  padding: 3rem 0;
+  background: linear-gradient(180deg, #333333 0%, var(--color-black) 100%);
+  margin-top: 6rem;
+  margin-bottom: 0;
+  padding: 4rem 0 4.5rem;
+}
+
+/* Cuando la newsletter es lo último antes del footer (ambos oscuros), se unen sin salto blanco */
+main:has(> .newsletter-section) + .site-footer-dark {
+  margin-top: 0;
 }
 
 .newsletter-section-inner {
