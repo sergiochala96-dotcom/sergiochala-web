@@ -1813,7 +1813,9 @@ article.post th {
 /* ---- Newsletter section (inline, not popup) ---- */
 
 .newsletter-section {
-  background: linear-gradient(180deg, #333333 0%, var(--color-black) 100%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 138, 30, 0.18), transparent 38%),
+    linear-gradient(180deg, #3d3d3d 0%, #000000 100%);
   margin-top: 6rem;
   margin-bottom: 0;
   padding: 4rem 0 4.5rem;
@@ -1940,7 +1942,7 @@ main:has(> .newsletter-section) + .site-footer-dark {
 
 .site-footer-dark {
   margin-top: 4rem;
-  background: var(--color-black);
+  background: #1a1a1a;
   color: #d4d4d4;
   padding: 3.5rem 0 2rem;
 }
