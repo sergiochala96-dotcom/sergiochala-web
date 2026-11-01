@@ -1,12 +1,180 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NewsletterSection from '../../components/NewsletterSection.astro';
+
+type Category = 'servicios' | 'comunidades';
+
+interface Offer {
+  category: Category;
+  badge: string;
+  icon: string;
+  title: string;
+  tagline: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  external?: boolean;
+}
+
+const icons: Record<string, string> = {
+  megaphone:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4a1 1 0 0 0 1 1h2l3.5 4.5a1 1 0 0 0 1.8-.6V5.1a1 1 0 0 0-1.8-.6L6 9H4a1 1 0 0 0-1 1Z"/><path d="M15 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18 7a7 7 0 0 1 0 10"/></svg>',
+  compass:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6 6-2Z"/></svg>',
+  rocket:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16s-1 3 0 4c1 1 4 0 4 0"/><path d="M12.5 4.5c3 0 6 3 6 6.5 0 4-3.5 7-5.5 8l-3-3c1-2 4-5.5 4-9 0-1-.2-1.8-1.5-2.5Z"/><path d="M9 14c-2 0-4-1-4-1s2.5-4 4.5-4.5"/><circle cx="14" cy="10" r="1"/></svg>',
+  users:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8.5" r="2.3"/><path d="M15.5 14.3c2.5.4 4.5 2.6 4.5 5.7"/></svg>',
+  flag:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18"/><path d="M5 4h11l-2.5 3.5L16 11H5"/></svg>',
+  person:
+    '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>',
+};
+
+const offers: Offer[] = [
+  {
+    category: 'servicios',
+    badge: 'Servicio',
+    icon: 'megaphone',
+    title: 'Manejo de Pauta Publicitaria',
+    tagline: 'Gestiono tus campañas para que inviertas con cabeza, no a ciegas',
+    description:
+      'Me encargo de la configuración, el seguimiento y la optimización de tus anuncios, para que tu inversión en pauta trabaje para tu infonegocio y no al revés.',
+    ctaLabel: 'Escríbeme por este servicio',
+    ctaHref: '/contacto/',
+  },
+  {
+    category: 'servicios',
+    badge: 'Servicio',
+    icon: 'compass',
+    title: 'Asesoría Estratégica de Marketing',
+    tagline: 'Para infonegocios que necesitan claridad, no más tácticas sueltas',
+    description:
+      'Revisamos juntos tu oferta, tu comunidad y tus canales de venta, y armamos un plan concreto con las prioridades reales de tu negocio digital.',
+    ctaLabel: 'Escríbeme por este servicio',
+    ctaHref: '/contacto/',
+  },
+  {
+    category: 'servicios',
+    badge: 'Servicio',
+    icon: 'rocket',
+    title: 'Lanzamientos Digitales de Infoproductos',
+    tagline: 'Acompañamiento para el lanzamiento de tu curso o infoproducto',
+    description:
+      'Te acompaño en la planeación y ejecución del lanzamiento de tu infoproducto: cronograma, comunicación con tu audiencia y lo que he aprendido lanzando los míos.',
+    ctaLabel: 'Escríbeme por este servicio',
+    ctaHref: '/contacto/',
+  },
+  {
+    category: 'comunidades',
+    badge: 'Comunidad',
+    icon: 'users',
+    title: 'Infocreators Club',
+    tagline: 'Mi comunidad de mentoría en Skool',
+    description:
+      'La comunidad donde acompaño paso a paso a quienes quieren construir y monetizar su propio infonegocio con Skool, Hotmart e inteligencia artificial.',
+    ctaLabel: 'Ver la comunidad',
+    ctaHref: 'https://www.skool.com/infocreators-club-pro-6633/about',
+    external: true,
+  },
+  {
+    category: 'comunidades',
+    badge: 'Comunidad',
+    icon: 'flag',
+    title: 'Reto Skool',
+    tagline: 'Mi otra comunidad en Skool',
+    description:
+      'Un espacio para quienes están dando sus primeros pasos en comunidades digitales y quieren aprender junto a otros creadores.',
+    ctaLabel: 'Ver la comunidad',
+    ctaHref: 'https://www.skool.com/the-creators-community-4018/about',
+    external: true,
+  },
+  {
+    category: 'comunidades',
+    badge: 'Mentoría',
+    icon: 'person',
+    title: 'Mentoría 1 a 1 para Infoproductores',
+    tagline: 'Acompañamiento personalizado para tu caso puntual',
+    description:
+      'Sesiones de mentoría individual para revisar tu negocio digital y avanzar más rápido, con lo que he aprendido construyendo el mío.',
+    ctaLabel: 'Escríbeme por esta mentoría',
+    ctaHref: '/contacto/',
+  },
+];
+
+const filters: { key: 'todos' | Category; label: string }[] = [
+  { key: 'todos', label: 'Todos' },
+  { key: 'servicios', label: 'Servicios' },
+  { key: 'comunidades', label: 'Comunidades' },
+];
 ---
-<Layout title="Servicios" description="Los servicios y cursos de Sergio Chala sobre comunidades digitales, infoproductos e inteligencia artificial.">
-  <section class="hero">
-    <h1>Servicios</h1>
-    <p>Estoy preparando esta sección con los servicios y cursos que ofrezco. Mientras tanto, puedes <a href="/blog/">leer el blog</a>.</p>
+<Layout
+  title="Servicios"
+  description="Servicios de marketing para infonegocios y comunidades digitales de Sergio Chala: pauta publicitaria, asesoría estratégica, lanzamientos y mentoría."
+  wide
+>
+  <section class="offers-hero">
+    <span class="offers-eyebrow">Servicios y comunidades</span>
+    <h1>Servicios &amp; Comunidades</h1>
+    <p>
+      Esto es lo que ofrezco además del blog: servicios de marketing para infonegocios,
+      y mis comunidades y mentorías para quienes quieren construir el suyo acompañados.
+    </p>
   </section>
+
+  <nav class="offers-filters" id="offers-filters">
+    {filters.map((filter) => (
+      <button type="button" class={`offers-filter ${filter.key === 'todos' ? 'active' : ''}`} data-filter={filter.key}>
+        {filter.label}
+      </button>
+    ))}
+  </nav>
+
+  <div class="offers-grid" id="offers-grid">
+    {offers.map((offer) => (
+      <div class="offer-card" data-category={offer.category}>
+        <div class={`offer-card-media offer-card-media--${offer.category}`}>
+          <span class="offer-badge">{offer.badge}</span>
+          <span class="offer-icon" set:html={icons[offer.icon]} />
+        </div>
+        <div class="offer-card-body">
+          <h3>{offer.title}</h3>
+          <p class="offer-tagline">{offer.tagline}</p>
+          <p class="offer-description">{offer.description}</p>
+          <a
+            class="cta cta-accent offer-cta"
+            href={offer.ctaHref}
+            target={offer.external ? '_blank' : undefined}
+            rel={offer.external ? 'noopener noreferrer' : undefined}
+          >
+            {offer.ctaLabel}
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="offers-disclaimer">
+    Sergio Chala no es empleado ni representante de Skool — Infocreators Club y Reto Skool son
+    comunidades propias administradas por él en esa plataforma.
+  </p>
 
   <NewsletterSection />
 </Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.offers-filter');
+  const cards = document.querySelectorAll<HTMLElement>('#offers-grid .offer-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      cards.forEach((card) => {
+        card.hidden = filter !== 'todos' && card.dataset.category !== filter;
+      });
+    });
+  });
+</script>
