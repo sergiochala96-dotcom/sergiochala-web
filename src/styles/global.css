@@ -2574,7 +2574,29 @@ article.post th {
 }
 
 .offers-block {
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
+}
+
+.offers-block-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  font-weight: 700;
+  position: relative;
+  margin: 0 0 2.5rem;
+  padding-bottom: 0.9rem;
+}
+
+.offers-block-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-accent);
 }
 
 .offers-grid {
@@ -2687,14 +2709,14 @@ article.post th {
   padding: 0.85rem 1.1rem;
   font-size: 0.95rem;
   border-radius: 10px;
-  background: var(--color-accent);
+  background: #f8d481;
   color: var(--color-black);
-  border-color: var(--color-accent);
+  border-color: #f8d481;
 }
 
 .offer-cta:hover {
-  background: #ffd84d;
-  border-color: #ffd84d;
+  background: #f4c768;
+  border-color: #f4c768;
   color: var(--color-black);
 }
 
