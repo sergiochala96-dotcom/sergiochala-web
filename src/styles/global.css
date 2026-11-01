@@ -1844,6 +1844,7 @@ main:has(> .newsletter-section) + .site-footer-dark {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 10%;
 }
 
 .newsletter-section-body {
