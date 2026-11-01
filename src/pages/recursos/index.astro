@@ -2,35 +2,42 @@
 import Layout from '../../layouts/Layout.astro';
 import NewsletterSection from '../../components/NewsletterSection.astro';
 
-const freeResources = [
+const resources = [
   {
+    icon: '/images/recurso-icono-kit-lanzar-comunidad-skool.png',
     title: '[KIT] Plantilla para lanzar tu comunidad en Skool',
     text: 'Una guía paso a paso para ordenar el lanzamiento de tu comunidad antes de abrirla al público.',
     cta: 'Obtener gratis',
-  },
-  {
-    title: '[GUÍA] Cómo estructurar tu primer infoproducto en Hotmart',
-    text: 'El checklist que uso antes de subir cualquier curso o producto digital a Hotmart.',
-    cta: 'Obtener gratis',
-  },
-];
-
-const paidResources = [
-  {
-    title: 'Toma mi Curso: InfoCreators Club',
-    text: 'Mi comunidad en Skool sobre comunidades digitales, infoproductos e inteligencia artificial.',
-    cta: 'Ver en Skool',
-    href: 'https://www.skool.com/infocreators-club-pro-6633/about',
-  },
-  {
-    title: 'Mentoría 1 a 1 (próximamente)',
-    text: 'Acompañamiento personalizado para montar o escalar tu ecosistema digital.',
-    cta: 'Más información',
     href: '#',
+  },
+  {
+    icon: '/images/recurso-icono-skooly.png',
+    title: 'Skooly: crea y lanza tu school en 7 días',
+    text: 'Mi aplicación para crear y lanzar tu comunidad en Skool paso a paso, en solo 7 días.',
+    cta: 'Probar Skooly',
+    href: 'https://skool.neobrandclub.com/',
+  },
+  {
+    icon: '/images/recurso-icono-calculadora-ganancias-skool.png',
+    title: 'Calculadora de ganancias de Skool',
+    text: 'Calcula cuánto podrías ganar con tu comunidad en Skool según el precio y la cantidad de miembros.',
+    cta: 'Abrir calculadora',
+    href: 'https://tally.so/r/J9Z9Zd',
+  },
+  {
+    icon: '/images/recurso-icono-mentoria-1a1.png',
+    title: 'Mentoría 1 a 1 para Infoproductores',
+    text: 'Acompañamiento personalizado para montar o escalar tu ecosistema digital.',
+    cta: 'Escríbeme por esta mentoría',
+    href: 'https://api.whatsapp.com/send?phone=573015144829&text=Hola%20Sergio,%20Me%20interesar%C3%ADa%20saber%20m%C3%A1s%20sobre%20tu%20Mentor%C3%ADa%20Personalizada%201a1%20para%20Infoproductores,%20mi%20nombres%20es:%20',
   },
 ];
 ---
-<Layout title="Recursos Gratuitos" description="Plantillas y guías gratuitas de Sergio Chala sobre Skool, Hotmart y Claude." wide>
+<Layout title="Recursos Gratuitos" description="Recursos 100% gratuitos de Sergio Chala: plantillas, Skooly, calculadora de ganancias de Skool y mentoría." wide>
+  <section class="resources-hero">
+    <h1>Recursos 100% Gratuitos</h1>
+  </section>
+
   <section class="resources-section">
     <aside class="resources-author">
       <img class="resources-author-photo" src="/images/sergio-avatar.jpg" alt="Sergio Chala" width="160" height="160" />
@@ -60,31 +67,17 @@ const paidResources = [
     </aside>
 
     <div class="resources-grid">
-      <div class="resources-group">
-        <p class="resources-group-label">Gratis</p>
-        <div class="resources-cards">
-          {freeResources.map((item) => (
-            <div class="resource-card resource-card--free">
-              <span class="badge-soon">Próximamente</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-              <a class="cta" href="#">{item.cta}</a>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="resources-group">
-        <p class="resources-group-label">De pago</p>
-        <div class="resources-cards">
-          {paidResources.map((item) => (
-            <div class="resource-card resource-card--paid">
+      <div class="resources-cards">
+        {resources.map((item) => (
+          <div class="resource-card">
+            <img class="resource-card-icon" src={item.icon} alt="" width="72" height="72" loading="lazy" />
+            <div class="resource-card-body">
               <h3>{item.title}</h3>
               <p>{item.text}</p>
               <a class="cta" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{item.cta}</a>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

@@ -2412,11 +2412,20 @@ article.post th {
 
 /* ---- Recursos ---- */
 
+.resources-hero {
+  margin: 1.5rem 0 2rem;
+}
+
+.resources-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0;
+}
+
 .resources-section {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 3rem;
-  margin: 1rem 0 4rem;
+  margin: 0 0 4rem;
   align-items: start;
 }
 
@@ -2475,21 +2484,6 @@ article.post th {
   border-color: var(--color-black);
 }
 
-.resources-group {
-  margin-bottom: 2.5rem;
-}
-
-.resources-group-label {
-  display: inline-block;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 0.4rem 1.1rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-  margin: 0 0 1.25rem;
-}
-
 .resources-cards {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -2498,18 +2492,29 @@ article.post th {
 
 .resource-card {
   min-width: 0;
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.resource-card-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.resource-card-body {
+  min-width: 0;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.6rem;
-}
-
-.resource-card--free,
-.resource-card--paid {
-  background: var(--color-white);
 }
 
 .resource-card h3 {
