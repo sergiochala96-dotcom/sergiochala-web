@@ -5,6 +5,7 @@
   --color-black: #111111;
   --color-white: #ffffff;
   --color-accent: #ffc700;
+  --color-accent-button: #f8d481;
   --color-accent-ink: #171717;
   --color-link: #2563eb;
   --color-border: #e6e6e6;
@@ -394,7 +395,7 @@ main.container.container--wide {
 }
 
 .cta:hover {
-  background: var(--color-accent);
+  background: var(--color-accent-button);
   border-color: var(--color-black);
   color: var(--color-black);
 }
@@ -1205,9 +1206,9 @@ article.post th {
 }
 
 .cta-accent {
-  background: var(--color-accent);
+  background: var(--color-accent-button);
   color: var(--color-black);
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-button);
 }
 
 .cta-accent:hover {
@@ -1482,7 +1483,7 @@ article.post th {
 }
 
 .youtube-cta-pill:hover {
-  background: var(--color-accent);
+  background: var(--color-accent-button);
   color: var(--color-black);
 }
 
@@ -2709,15 +2710,6 @@ article.post th {
   padding: 0.85rem 1.1rem;
   font-size: 0.95rem;
   border-radius: 10px;
-  background: #f8d481;
-  color: var(--color-black);
-  border-color: #f8d481;
-}
-
-.offer-cta:hover {
-  background: #f4c768;
-  border-color: #f4c768;
-  color: var(--color-black);
 }
 
 .offers-disclaimer {
