@@ -2509,6 +2509,13 @@ article.post th {
   object-fit: contain;
 }
 
+@media (min-width: 901px) {
+  .resource-card-icon {
+    width: 112px;
+    height: 112px;
+  }
+}
+
 .resource-card-body {
   min-width: 0;
   display: flex;
