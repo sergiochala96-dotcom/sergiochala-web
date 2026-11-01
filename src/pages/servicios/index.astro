@@ -10,7 +10,6 @@ interface Offer {
   bannerImage?: string;
   title: string;
   description: string;
-  price: string;
   ctaLabel: string;
   ctaHref: string;
   external?: boolean;
@@ -31,36 +30,34 @@ const icons: Record<string, string> = {
     '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>',
 };
 
-// bannerImage queda vacío a propósito: mientras Sergio pasa las imágenes
-// reales, se muestra un degradado de marca con el icono como placeholder.
 const servicios: Offer[] = [
   {
     category: 'servicios',
     icon: 'megaphone',
+    bannerImage: '/images/servicio-manejo-pauta-publicitaria-banner.jpg',
     title: 'Manejo de Pauta Publicitaria',
     description:
       'Me encargo de la configuración, el seguimiento y la optimización de tus anuncios, para que tu inversión en pauta trabaje para tu infonegocio y no al revés.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Escríbeme por este servicio',
     ctaHref: '/contacto/',
   },
   {
     category: 'servicios',
     icon: 'compass',
+    bannerImage: '/images/servicio-asesoria-estrategica-marketing-banner.jpg',
     title: 'Asesoría Estratégica de Marketing',
     description:
       'Revisamos juntos tu oferta, tu comunidad y tus canales de venta, y armamos un plan concreto con las prioridades reales de tu negocio digital.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Escríbeme por este servicio',
     ctaHref: '/contacto/',
   },
   {
     category: 'servicios',
     icon: 'rocket',
+    bannerImage: '/images/servicio-lanzamientos-digitales-banner.jpg',
     title: 'Lanzamientos Digitales de Infoproductos',
     description:
       'Te acompaño en la planeación y ejecución del lanzamiento de tu infoproducto: cronograma, comunicación con tu audiencia y lo que he aprendido lanzando los míos.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Escríbeme por este servicio',
     ctaHref: '/contacto/',
   },
@@ -70,10 +67,10 @@ const comunidades: Offer[] = [
   {
     category: 'comunidades',
     icon: 'users',
+    bannerImage: '/images/comunidad-infocreators-club-banner.jpg',
     title: 'Infocreators Club',
     description:
       'La comunidad donde acompaño paso a paso a quienes quieren construir y monetizar su propio infonegocio con Skool, Hotmart e inteligencia artificial.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Ver la comunidad',
     ctaHref: 'https://www.skool.com/infocreators-club-pro-6633/about',
     external: true,
@@ -81,10 +78,10 @@ const comunidades: Offer[] = [
   {
     category: 'comunidades',
     icon: 'flag',
+    bannerImage: '/images/comunidad-reto-skool-banner.jpg',
     title: 'Reto Skool',
     description:
       'Un espacio para quienes están dando sus primeros pasos en comunidades digitales y quieren aprender junto a otros creadores.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Ver la comunidad',
     ctaHref: 'https://www.skool.com/the-creators-community-4018/about',
     external: true,
@@ -92,10 +89,10 @@ const comunidades: Offer[] = [
   {
     category: 'comunidades',
     icon: 'person',
+    bannerImage: '/images/mentoria-1a1-infoproductores-banner.jpg',
     title: 'Mentoría 1 a 1 para Infoproductores',
     description:
       'Sesiones de mentoría individual para revisar tu negocio digital y avanzar más rápido, con lo que he aprendido construyendo el mío.',
-    price: 'Precio por confirmar',
     ctaLabel: 'Escríbeme por esta mentoría',
     ctaHref: '/contacto/',
   },
@@ -122,7 +119,7 @@ const comunidades: Offer[] = [
         <div class="offer-card">
           <div class={`offer-card-banner offer-card-banner--${offer.category}`}>
             {offer.bannerImage ? (
-              <img src={offer.bannerImage} alt={offer.title} width="400" height="220" />
+              <img src={offer.bannerImage} alt={offer.title} width="960" height="540" />
             ) : (
               <span class="offer-card-banner-icon" set:html={icons[offer.icon]} />
             )}
@@ -134,7 +131,6 @@ const comunidades: Offer[] = [
             </div>
             <p class="offer-description">{offer.description}</p>
             <div class="offer-card-footer">
-              <span class="offer-price">{offer.price}</span>
               <a
                 class="cta cta-accent offer-cta"
                 href={offer.ctaHref}
@@ -157,7 +153,7 @@ const comunidades: Offer[] = [
         <div class="offer-card">
           <div class={`offer-card-banner offer-card-banner--${offer.category}`}>
             {offer.bannerImage ? (
-              <img src={offer.bannerImage} alt={offer.title} width="400" height="220" />
+              <img src={offer.bannerImage} alt={offer.title} width="960" height="540" />
             ) : (
               <span class="offer-card-banner-icon" set:html={icons[offer.icon]} />
             )}
@@ -169,7 +165,6 @@ const comunidades: Offer[] = [
             </div>
             <p class="offer-description">{offer.description}</p>
             <div class="offer-card-footer">
-              <span class="offer-price">{offer.price}</span>
               <a
                 class="cta cta-accent offer-cta"
                 href={offer.ctaHref}
