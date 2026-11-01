@@ -59,6 +59,6 @@ El cambio real para mí no fue "dejar uno por el otro", fue entender para qué s
 
 ---
 
-Sergio Chala no es empleado ni representante de Hotmart ni de Skool — esta es su experiencia personal usando ambas plataformas en sus propios negocios digitales.
+No soy empleado ni representante de Hotmart ni de Skool — esta es mi experiencia personal usando ambas plataformas en mis propios negocios digitales.
 
 Si quieres el detalle completo de cada plataforma, lee [¿qué es Hotmart y cómo funciona?](/blog/que-es-hotmart-como-funciona/) y [¿qué es Skool y para qué sirve?](/blog/que-es-skool/). Y si ya te decidiste por Skool, te cuento cuánto cuesta cada plan en [cuánto cuesta Skool al mes](/blog/cuanto-cuesta-skool-al-mes/).

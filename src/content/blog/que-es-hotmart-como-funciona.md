@@ -57,7 +57,7 @@ Lo que más me ha funcionado ahí es el nicho del dinero y las profesiones digit
 
 ---
 
-Sergio Chala no es empleado ni representante de Hotmart — esta es su experiencia personal como productor y afiliado en la plataforma.
+No soy empleado ni representante de Hotmart — esta es mi experiencia personal como productor y afiliado en la plataforma.
 
 ¿Quieres saber qué es lo que más se vende en Hotmart? Lee [qué es lo que más se vende en Hotmart](/blog/que-es-lo-que-mas-se-vende-en-hotmart/). Y si vendes desde Colombia, te puede interesar [¿es legal Hotmart en Colombia?](/blog/es-legal-hotmart-en-colombia/).
 

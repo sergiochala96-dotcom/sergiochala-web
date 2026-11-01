@@ -48,7 +48,7 @@ No soy contador ni abogado, y esto no es una guía de cómo debes declarar tú. 
 
 ---
 
-Esta información es general y no reemplaza una asesoría legal o contable personalizada. Sergio Chala no es abogado ni contador — cuenta su experiencia personal como vendedor en Hotmart desde Colombia.
+Esta información es general y no reemplaza una asesoría legal o contable personalizada. No soy abogado ni contador — cuento mi experiencia personal como vendedor en Hotmart desde Colombia.
 
 ¿Quieres entender primero qué es Hotmart y cómo funciona? Lee [¿qué es Hotmart y cómo funciona?](/blog/que-es-hotmart-como-funciona/).
 

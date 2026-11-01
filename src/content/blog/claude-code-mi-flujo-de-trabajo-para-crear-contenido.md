@@ -47,7 +47,7 @@ Lo que más valoro es que no tengo que depender de un desarrollador ni de un dis
 
 ---
 
-Sergio Chala no trabaja para Anthropic ni la representa — esta es su experiencia personal usando Claude Code para construir y mantener su sitio.
+No trabajo para Anthropic ni la represento — esta es mi experiencia personal usando Claude Code para construir y mantener mi sitio.
 
 ¿Quieres saber qué más puedes hacer con Claude, además de Claude Code? Lee [¿qué es Claude y para qué sirve?](/blog/que-es-claude-ia/). Y si quieres ver cómo uso Claude específicamente para escribir cada artículo, te lo cuento en [cómo uso Claude para escribir mis artículos](/blog/como-uso-claude-para-escribir-mis-articulos/).
 

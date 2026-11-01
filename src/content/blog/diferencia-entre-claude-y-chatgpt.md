@@ -56,7 +56,7 @@ Con Claude Code paso de darle una instrucción a tener una página, una automati
 
 ---
 
-Sergio Chala no trabaja para Anthropic ni para OpenAI — esta es su experiencia personal usando ambas herramientas.
+No trabajo para Anthropic ni para OpenAI — esta es mi experiencia personal usando ambas herramientas.
 
 ¿Quieres saber si Claude tiene un plan gratis de verdad? Lee [¿Claude IA es gratis?](/blog/claude-ia-es-gratis/).
 

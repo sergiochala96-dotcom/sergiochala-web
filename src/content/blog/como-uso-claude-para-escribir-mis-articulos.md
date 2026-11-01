@@ -47,7 +47,7 @@ Hoy pago una sola herramienta — Claude — y con eso resuelvo prácticamente t
 
 ---
 
-Sergio Chala no trabaja para Anthropic ni la representa — esta es su experiencia personal usando Claude para crear contenido.
+No trabajo para Anthropic ni la represento — esta es mi experiencia personal usando Claude para crear contenido.
 
 Si quieres saber qué es Claude y para qué más lo uso en mi negocio, lee [¿qué es Claude y para qué sirve?](/blog/que-es-claude-ia/). Y si te interesa la parte más técnica — cómo construí este mismo sitio con IA — te cuento en [Claude Code: mi flujo de trabajo para crear contenido](/blog/claude-code-mi-flujo-de-trabajo-para-crear-contenido/).
 

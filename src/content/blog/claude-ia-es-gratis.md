@@ -64,7 +64,7 @@ Con lo que he vivido, te lo resumo así:
 
 ---
 
-Sergio Chala no trabaja para Anthropic ni la representa — esta es su experiencia personal pagando el plan Pro.
+No trabajo para Anthropic ni la represento — esta es mi experiencia personal pagando el plan Pro.
 
 ¿Quieres saber qué diferencia hay entre Claude y ChatGPT? Lee [Claude vs ChatGPT: diferencias reales](/blog/diferencia-entre-claude-y-chatgpt/).
 

@@ -55,7 +55,7 @@ Lo que más cambió mi forma de ver el negocio fue el modelo de ingreso. Antes, 
 
 ---
 
-Sergio Chala no es empleado ni representante de Skool — esta es su experiencia personal administrando sus propias comunidades en la plataforma.
+No soy empleado ni representante de Skool — esta es mi experiencia personal administrando mis propias comunidades en la plataforma.
 
 Si quieres el panorama completo de qué es Skool y qué incluye cada plan, lee [¿qué es Skool y para qué sirve?](/blog/que-es-skool/) y [cuánto cuesta Skool al mes](/blog/cuanto-cuesta-skool-al-mes/).
 

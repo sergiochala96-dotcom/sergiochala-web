@@ -56,7 +56,7 @@ Desde entonces hasta hoy llevo más de 4.650 ventas y más de 185.000 USD factur
 
 ---
 
-Sergio Chala no es empleado ni representante de Hotmart — esta es su experiencia personal como productor y afiliado en la plataforma.
+No soy empleado ni representante de Hotmart — esta es mi experiencia personal como productor y afiliado en la plataforma.
 
 Si quieres el panorama completo de cómo funciona Hotmart (productor vs. afiliado, comisiones, alcance), lee [¿qué es Hotmart y cómo funciona?](/blog/que-es-hotmart-como-funciona/). Y si ya tienes claro que vas a lanzar, te puede interesar [qué es lo que más se vende en Hotmart](/blog/que-es-lo-que-mas-se-vende-en-hotmart/).
 

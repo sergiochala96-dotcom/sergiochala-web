@@ -49,7 +49,7 @@ Lo que más valoro no es solo que escriba bien — es que puede construir cosas 
 
 ---
 
-Sergio Chala no trabaja para Anthropic ni la representa — esta es su experiencia personal como usuario de Claude.
+No trabajo para Anthropic ni la represento — esta es mi experiencia personal como usuario de Claude.
 
 ¿Quieres saber qué diferencia hay entre Claude y ChatGPT? Lee [Claude vs ChatGPT: diferencias reales](/blog/diferencia-entre-claude-y-chatgpt/).
 
